@@ -1,0 +1,191 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="PageLayoutRN" amDefName="xxfin.oracle.apps.ap.iou.server.iouAM" windowTitle="Staff IOU Page" controllerClass="xxfin.oracle.apps.ap.iou.webui.iouSearchCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:header id="SearchRN" text="Search">
+               <ui:contents>
+                  <oa:defaultSingleColumn id="region1" headerDisabled="true">
+                     <ui:contents>
+                        <oa:messageLovInput id="EName" prompt="Employee Name" externalListOfValues="/xxfin/oracle/apps/ap/iou/lov/webui/iuoEmpLOVRN">
+                           <lovMappings>
+                              <lovMap id="lovMap1" lovItem="FullName" resultTo="EName"/>
+                              <lovMap id="lovMap2" lovItem="EmployeeNumber" resultTo="ENum"/>
+                              <lovMap id="lovMap3" lovItem="PersonId" resultTo="Eid" criteriaFrom="Eid"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                        <oa:messageLovInput id="ENum" prompt="Employee Number" externalListOfValues="/xxfin/oracle/apps/ap/iou/lov/webui/iuoEmpLOVRN">
+                           <lovMappings>
+                              <lovMap id="lovMap4" lovItem="EmployeeNumber" resultTo="ENum"/>
+                              <lovMap id="lovMap5" lovItem="FullName" resultTo="EName"/>
+                              <lovMap id="lovMap6" lovItem="PersonId" resultTo="Eid" criteriaFrom="Eid"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                        <oa:messageChoice id="Status" prompt="Status" pickListViewName="iouStatusVO" pickListDispAttr="Status" pickListValAttr="Status"/>
+                        <oa:formValue id="Eid"/>
+                     </ui:contents>
+                  </oa:defaultSingleColumn>
+                  <oa:spacer id="spacer" height="3"/>
+                  <oa:rowLayout id="region2" width="100%">
+                     <ui:contents>
+                        <oa:cellFormat id="c31" width="10%"/>
+                        <oa:cellFormat id="c1" width="10%">
+                           <ui:contents>
+                              <oa:button id="Go" text="Go" prompt="Go">
+                                 <ui:primaryClientAction>
+                                    <ui:fireAction event="Search"/>
+                                 </ui:primaryClientAction>
+                              </oa:button>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="c2" width="10%">
+                           <ui:contents>
+                              <oa:button id="Clear" text="Clear" prompt="Clear">
+                                 <ui:primaryClientAction>
+                                    <ui:fireAction event="Clear"/>
+                                 </ui:primaryClientAction>
+                              </oa:button>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="c3" width="70%"/>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:header>
+            <oa:header id="TableRN" text="Search Results">
+               <ui:contents>
+                  <oa:advancedTable id="Table" viewName="iouVO" blockSize="25" width="100%">
+                     <ui:contents>
+                        <oa:column id="column1">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader1" prompt="IOU Number"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="iuonum" viewAttr="IouNum"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="column16212">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader16212" prompt="Division"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="div" viewAttr="DivisionName"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="column12">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader12" prompt="Employee Name"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="Ename" viewAttr="FullName"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="column13">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader13" prompt="Employee Number"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="Enum" viewAttr="EmployeeNumber"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="column14">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader14" prompt="IOU Given Date"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="GivenDate" viewAttr="IouGivenDate"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="column15">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader15" prompt="Currency"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="Currency" viewAttr="Currency"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="column16">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader16" prompt="Amount"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="Amount" viewAttr="Amount"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="column161">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader161" prompt="Remarks"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="Remarks" viewAttr="Remarks"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="column162">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader162" prompt="Status"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="status" viewAttr="Status"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="column16211">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader16211" prompt="Info"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:image id="Info" destination="" source="detailsicon_enabled.gif">
+                                 <ui:primaryClientAction>
+                                    <ui:fireAction id="fireAction2" event="InfoBT">
+                                       <ui:parameters>
+                                          <ui:parameter key="Piouid" value="${oa.iouVO.IouId}"/>
+                                       </ui:parameters>
+                                    </ui:fireAction>
+                                 </ui:primaryClientAction>
+                              </oa:image>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="column1621">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader1621" prompt="Update"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:switcher id="region3" viewAttr="UpdateIcon">
+                                 <ui:case name="Update">
+                                    <oa:image id="Update" destination="" source="updateicon_enabled.gif">
+                                       <ui:primaryClientAction>
+                                          <ui:fireAction event="UpdateBT">
+                                             <ui:parameters>
+                                                <ui:parameter key="Piouid" value="${oa.iouVO.IouId}"/>
+                                             </ui:parameters>
+                                          </ui:fireAction>
+                                       </ui:primaryClientAction>
+                                    </oa:image>
+                                 </ui:case>
+                                 <ui:case name="Updatedis">
+                                    <oa:image id="Updatedis" destination="" source="updateicon_disabled.gif"/>
+                                 </ui:case>
+                              </oa:switcher>
+                           </ui:contents>
+                        </oa:column>
+                     </ui:contents>
+                     <ui:tableActions>
+                        <oa:flowLayout id="region4">
+                           <ui:contents>
+                              <oa:button id="CreateBT" text="Create" prompt="Create">
+                                 <ui:primaryClientAction>
+                                    <ui:fireAction event="CreateBT"/>
+                                 </ui:primaryClientAction>
+                              </oa:button>
+                           </ui:contents>
+                        </oa:flowLayout>
+                     </ui:tableActions>
+                  </oa:advancedTable>
+               </ui:contents>
+            </oa:header>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

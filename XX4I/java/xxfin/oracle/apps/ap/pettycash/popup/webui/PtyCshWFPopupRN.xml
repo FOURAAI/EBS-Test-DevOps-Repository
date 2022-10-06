@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:tableLayout version="10.1.3_" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" amDefName="xxfin.oracle.apps.ap.pettycash.server.PtCshAM" hAlign="center" controllerClass="xxfin.oracle.apps.ap.pettycash.popup.webui.PtyCshWFPopupCO">
+   <ui:contents>
+      <oa:rowLayout id="region1">
+         <ui:contents>
+            <oa:cellFormat id="region2">
+               <ui:contents>
+                  <oa:table id="PtCshWfHistVO1">
+                     <ui:contents>
+                        <oa:messageStyledText id="SubmissionDate" dataType="DATETIME" prompt="Submission Date" viewName="PtCshWfHistVO1" viewAttr="SubmissionDate"/>
+                        <oa:messageStyledText id="ResponderRole" dataType="VARCHAR2" prompt="Responder Role" viewName="PtCshWfHistVO1" viewAttr="ResponderRole" maximumLength="360"/>
+                        <oa:messageStyledText id="EmployeeNumber" dataType="VARCHAR2" prompt="Employee Number" viewName="PtCshWfHistVO1" viewAttr="EmployeeNumber" maximumLength="360"/>
+                        <oa:messageStyledText id="ResponderName" dataType="VARCHAR2" prompt="Responder Name" viewName="PtCshWfHistVO1" viewAttr="ResponderName" maximumLength="360"/>
+                        <oa:messageStyledText id="Response" dataType="VARCHAR2" prompt="Response" viewName="PtCshWfHistVO1" viewAttr="Response" maximumLength="240"/>
+                        <oa:messageStyledText id="ResponseDate" dataType="DATETIME" prompt="Response Date" viewName="PtCshWfHistVO1" viewAttr="ResponseDate"/>
+                        <oa:messageStyledText id="ApproverComments" dataType="VARCHAR2" prompt="Approver Comments" viewName="PtCshWfHistVO1" viewAttr="ApproverComments" maximumLength="2000"/>
+                     </ui:contents>
+                  </oa:table>
+               </ui:contents>
+            </oa:cellFormat>
+         </ui:contents>
+      </oa:rowLayout>
+   </ui:contents>
+</oa:tableLayout>

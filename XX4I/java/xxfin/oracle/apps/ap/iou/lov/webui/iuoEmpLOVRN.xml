@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:listOfValues version="10.1.3_" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" scope="/">
+   <ui:contents>
+      <oa:table name="iuoEmpLOVRN" id="iouEmpLOVVO">
+         <ui:contents>
+            <oa:formValue id="PersonId" dataType="NUMBER" prompt="PersonId" viewName="iouEmpLOVVO" viewAttr="PersonId"/>
+            <oa:messageStyledText id="EmployeeNumber" dataType="VARCHAR2" prompt="Employee Number" viewName="iouEmpLOVVO" viewAttr="EmployeeNumber" maximumLength="30" queryable="true"/>
+            <oa:messageStyledText id="FullName" dataType="VARCHAR2" prompt="Full Name" viewName="iouEmpLOVVO" viewAttr="FullName" maximumLength="240" queryable="true"/>
+            <oa:messageStyledText id="EmailAddress" dataType="VARCHAR2" prompt="Email Address" viewName="iouEmpLOVVO" viewAttr="EmailAddress" maximumLength="240" queryable="true"/>
+         </ui:contents>
+      </oa:table>
+   </ui:contents>
+</oa:listOfValues>

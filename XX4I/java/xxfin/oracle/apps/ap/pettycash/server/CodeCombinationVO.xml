@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="CodeCombinationVO"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="oracle.apps.fnd.framework.server.OAViewRowImpl"
+   ComponentClass="xxfin.oracle.apps.ap.pettycash.server.CodeCombinationVOImpl"
+   UseGlueCode="false" >
+   <DesignTime>
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <Variable
+      Name="ptycsh_dtl_id"
+      Kind="where"
+      Type="java.lang.String" >
+   </Variable>
+   <SQLQuery><![CDATA[
+select gcc.concatenated_segments, gcc.code_combination_id, PTYCSH_DTL_ID from XXFIN_AP_PETTYCASH_DTL_V xapdv, gl_code_combinations_kfv gcc where 
+      xapdv.SEGMENT1_GOV_DESC = gcc.segment1 
+      and gcc.segment2 = '0000'
+      and gcc.segment3 = '0000'
+      and xapdv.department = gcc.segment4  and xapdv.PTYCSH_DTL_ID = :ptycsh_dtl_id
+      and xapdv.account_num = gcc.segment5 
+      and gcc.segment6 = '000000'
+      and gcc.segment8 = '0000'
+   ]]></SQLQuery>
+   <ViewAttribute
+      Name="ConcatenatedSegments"
+      IsPersistent="false"
+      Precision="207"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CONCATENATED_SEGMENTS"
+      Expression="CONCATENATED_SEGMENTS"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="207" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CodeCombinationId"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="15"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="CODE_COMBINATION_ID"
+      Expression="CODE_COMBINATION_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PtycshDtlId"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="PTYCSH_DTL_ID"
+      Expression="PTYCSH_DTL_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

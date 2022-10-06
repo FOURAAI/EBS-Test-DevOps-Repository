@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:messageComponentLayout version="10.1.3_" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" amDefName="xxfin.oracle.apps.ap.pettycash.server.PtCshAM">
+   <ui:contents>
+      <oa:messageTextInput id="item1" viewName="PtCshHdrVO1" viewAttr="RequestNumber" prompt="Request Number"/>
+      <oa:messageTextInput id="item2" viewName="PtCshHdrVO1" viewAttr="Status" prompt="Status"/>
+   </ui:contents>
+</oa:messageComponentLayout>

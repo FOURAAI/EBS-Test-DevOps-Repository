@@ -1,0 +1,275 @@
+# $Header$
+
+# dbdrv: exec fnd bin FNDLOAD bin &phase=daa+51 checkfile:~PROD:~PATH:~FILE &ui_apps 0 Y UPLOAD @FND:patch/115/import/aflvmlu.lct @~PROD:~PATH/~FILE
+LANGUAGE = "US"
+LDRCONFIG = "aflvmlu.lct 120.1.12020000.2"
+
+#Source Database TEST
+
+#RELEASE_NAME 12.2.6
+
+# -- Begin Entity Definitions -- 
+
+DEFINE FND_LOOKUP_TYPE
+  KEY   VIEW_APPSNAME                   VARCHAR2(50)
+  KEY   LOOKUP_TYPE                     VARCHAR2(30)
+  CTX   APPLICATION_SHORT_NAME          VARCHAR2(50)
+  BASE  CUSTOMIZATION_LEVEL             VARCHAR2(1)
+  CTX   OWNER                           VARCHAR2(4000)
+  BASE  LAST_UPDATE_DATE                VARCHAR2(10)
+  TRANS MEANING                         VARCHAR2(80)
+  TRANS DESCRIPTION                     VARCHAR2(240)
+
+  DEFINE FND_LOOKUP_VALUE
+    KEY   LOOKUP_CODE                     VARCHAR2(30)
+    BASE  ENABLED_FLAG                    VARCHAR2(1)
+    BASE  START_DATE_ACTIVE               VARCHAR2(10)
+    BASE  END_DATE_ACTIVE                 VARCHAR2(10)
+    BASE  TERRITORY_CODE                  VARCHAR2(2)
+    BASE  TAG                             VARCHAR2(150)
+    BASE  ATTRIBUTE_CATEGORY              VARCHAR2(30)
+    BASE  ATTRIBUTE1                      VARCHAR2(150)
+    BASE  ATTRIBUTE2                      VARCHAR2(150)
+    BASE  ATTRIBUTE3                      VARCHAR2(150)
+    BASE  ATTRIBUTE4                      VARCHAR2(150)
+    BASE  ATTRIBUTE5                      VARCHAR2(150)
+    BASE  ATTRIBUTE6                      VARCHAR2(150)
+    BASE  ATTRIBUTE7                      VARCHAR2(150)
+    BASE  ATTRIBUTE8                      VARCHAR2(150)
+    BASE  ATTRIBUTE9                      VARCHAR2(150)
+    BASE  ATTRIBUTE10                     VARCHAR2(150)
+    BASE  ATTRIBUTE11                     VARCHAR2(150)
+    BASE  ATTRIBUTE12                     VARCHAR2(150)
+    BASE  ATTRIBUTE13                     VARCHAR2(150)
+    BASE  ATTRIBUTE14                     VARCHAR2(150)
+    BASE  ATTRIBUTE15                     VARCHAR2(150)
+    CTX   OWNER                           VARCHAR2(4000)
+    BASE  LAST_UPDATE_DATE                VARCHAR2(10)
+    TRANS MEANING                         VARCHAR2(80)
+    TRANS DESCRIPTION                     VARCHAR2(240)
+  END FND_LOOKUP_VALUE
+END FND_LOOKUP_TYPE
+
+# -- End Entity Definitions -- 
+
+
+BEGIN FND_LOOKUP_TYPE "XXFIN" "XXFIN_PC_HR&ADMIN_EXP_LIST"
+  APPLICATION_SHORT_NAME = "XXFIN"
+  CUSTOMIZATION_LEVEL = "E"
+  OWNER = "VENKATA.RAJESH"
+  LAST_UPDATE_DATE = "2020/04/08"
+  MEANING = "XXFIN_PC_HR&ADMIN_EXP_LIST"
+  DESCRIPTION = "HR and Admin Division Petty Cash Expense Type List"
+
+  BEGIN FND_LOOKUP_VALUE "1"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/04/08"
+    TAG = "Medical Expenses"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/04/08"
+    MEANING = "Medical Expenses"
+    DESCRIPTION = "5470001"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "2"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/04/08"
+    TAG = "Office Consumables"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/04/08"
+    MEANING = "Office Consumables"
+    DESCRIPTION = "5580003"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "3"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/04/08"
+    TAG = "Office Consumables"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/04/08"
+    MEANING = "Food and Entertainment for Staff"
+    DESCRIPTION = "5580003"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "9"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/04/08"
+    TAG = "HSE - QHSE Services and Maintenace and Fire Fighting System"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/04/08"
+    MEANING = "HSE - QHSE Services and Maintenace and Fire Fighting System"
+    DESCRIPTION = "5560002"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "5"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/04/08"
+    TAG = "Outsourced Services"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/04/08"
+    MEANING = "Outsourced Services"
+    DESCRIPTION = "5480005"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "6"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/04/08"
+    TAG = "Performance Incentive - Long Services Award"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/04/08"
+    MEANING = "Performance Incentive - Long Services Award"
+    DESCRIPTION = "5430005"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "7"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/04/08"
+    TAG = "M&S - Gifts"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/04/08"
+    MEANING = "M&S - Gifts"
+    DESCRIPTION = "5700009"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "8"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/04/08"
+    TAG = "Visa and Immigrations Expenses"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/04/08"
+    MEANING = "Visa and Immigrations Expenses"
+    DESCRIPTION = "5495001"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "10"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/04/08"
+    TAG = "Training Cost - Other"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/04/08"
+    MEANING = "Training Cost - Other"
+    DESCRIPTION = "5460007"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "4"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/04/08"
+    TAG = "Printing and Stationary"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/04/08"
+    MEANING = "Printing and Stationary"
+    DESCRIPTION = "5580002"
+  END FND_LOOKUP_VALUE
+  
+END FND_LOOKUP_TYPE
+
+BEGIN FND_LOOKUP_TYPE "XXFIN" "XXFIN_PC_HR_ADMIN_EXP_LIST"
+  APPLICATION_SHORT_NAME = "XXFIN"
+  CUSTOMIZATION_LEVEL = "E"
+  OWNER = "VENKATA.RAJESH"
+  LAST_UPDATE_DATE = "2020/05/31"
+  MEANING = "XXFIN_PC_HR_ADMIN_EXP_LIST"
+  DESCRIPTION = "HR and Admin Expense Type List"
+
+  BEGIN FND_LOOKUP_VALUE "1"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/05/31"
+    TAG = "Medical Expenses"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/05/31"
+    MEANING = "Medical Expenses"
+    DESCRIPTION = "5470001"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "4"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/05/31"
+    TAG = "Outsourced Services"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/05/31"
+    MEANING = "Outsourced Services"
+    DESCRIPTION = "5480005"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "2"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/05/31"
+    TAG = "Office Consumables"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/05/31"
+    MEANING = "Office Consumables"
+    DESCRIPTION = "5580003"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "3"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/05/31"
+    TAG = "Printing and Stationary"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/05/31"
+    MEANING = "Printing and Stationary"
+    DESCRIPTION = "5580002"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "9"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/05/31"
+    TAG = "Training Cost - Other"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/05/31"
+    MEANING = "Training Cost - Other"
+    DESCRIPTION = "5460007"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "5"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/05/31"
+    TAG = "Performance Incentive - Long Services Award"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/05/31"
+    MEANING = "Performance Incentive - Long Services Award"
+    DESCRIPTION = "5430005"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "6"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/05/31"
+    TAG = "M&S - Gifts"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/05/31"
+    MEANING = "M&S - Gifts"
+    DESCRIPTION = "5700009"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "7"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/05/31"
+    TAG = "Visa and Immigration Expenses"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/05/31"
+    MEANING = "Visa and Immigration Expenses"
+    DESCRIPTION = "5495001"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "8"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/05/31"
+    TAG = "HSE - QHSE Services and Maintenance and Fire Fighting System"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/05/31"
+    MEANING = "HSE - QHSE Services and Maintenance and Fire Fighting System"
+    DESCRIPTION = "5560002"
+  END FND_LOOKUP_VALUE
+  
+  BEGIN FND_LOOKUP_VALUE "10"
+    ENABLED_FLAG = "Y"
+    START_DATE_ACTIVE = "2020/05/31"
+    TAG = "Food and Entertainment for Staff"
+    OWNER = "VENKATA.RAJESH"
+    LAST_UPDATE_DATE = "2020/05/31"
+    MEANING = "Food and Entertainment for Staff"
+    DESCRIPTION = "5580003"
+  END FND_LOOKUP_VALUE
+  
+END FND_LOOKUP_TYPE
+

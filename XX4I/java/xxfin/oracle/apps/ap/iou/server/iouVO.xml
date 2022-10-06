@@ -1,0 +1,421 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="iouVO"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="xxfin.oracle.apps.ap.iou.server.iouVORowImpl"
+   ComponentClass="xxfin.oracle.apps.ap.iou.server.iouVOImpl"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT iouEO.IOU_ID, 
+       iouEO.IOU_NUM, 
+       iouEO.PERSON_ID, 
+iouEO.EMPLOYEE_NUMBER,
+iouEO.FULL_NAME,
+       iouEO.DIVISION_ID, 
+iouEO.DIVISION,
+iouEO.DIVISION_NAME,
+       iouEO.IOU_GIVEN_DATE, 
+       iouEO.CURRENCY, 
+       iouEO.AMOUNT, 
+       iouEO.EXCHANGE_RATE, 
+       iouEO.EXCHANGE_RATE_DATE, 
+       iouEO.EXCHANGE_RATE_TYPE, 
+       iouEO.AMOUNT_OMR, 
+       iouEO.REMARKS, 
+iouEO.STATUS,
+       iouEO.IOU_CLOSED_DATE, 
+       iouEO.REASON_FOR_CLOSING, 
+       iouEO.BILL_AMOUNT, 
+       iouEO.BILL_ATTACHMENT, 
+       iouEO.DIFF_AMOUNT, 
+       iouEO.DIFF_AMOUNT_SETTLED, 
+       iouEO.ATTACHMENT, 
+       iouEO.ATTRIBUTE_CATEGORY, 
+       iouEO.ATTRIBUTE1, 
+       iouEO.ATTRIBUTE2, 
+       iouEO.ATTRIBUTE3, 
+       iouEO.ATTRIBUTE4, 
+       iouEO.ATTRIBUTE5, 
+       iouEO.ATTRIBUTE6, 
+       iouEO.ATTRIBUTE7, 
+       iouEO.ATTRIBUTE8, 
+       iouEO.ATTRIBUTE9, 
+       iouEO.ATTRIBUTE10, 
+       iouEO.ATTRIBUTE11, 
+       iouEO.ATTRIBUTE12, 
+       iouEO.ATTRIBUTE13, 
+       iouEO.ATTRIBUTE14, 
+       iouEO.ATTRIBUTE15, 
+       iouEO.ATTRIBUTE16, 
+       iouEO.ATTRIBUTE17, 
+       iouEO.ATTRIBUTE18, 
+       iouEO.ATTRIBUTE19, 
+       iouEO.ATTRIBUTE20, 
+       iouEO.CREATION_DATE, 
+       iouEO.CREATED_BY, 
+       iouEO.LAST_UPDATE_DATE, 
+       iouEO.LAST_UPDATED_BY, 
+       iouEO.LAST_UPDATE_LOGIN,
+iouEO.Update_icon
+FROM XXFIN_STAFF_IOU_V iouEO
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <EntityUsage
+      Name="iouEO"
+      Entity="xxfin.oracle.apps.ap.iou.schema.server.iouEO" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="IouId"
+      EntityAttrName="IouId"
+      EntityUsage="iouEO"
+      AliasName="IOU_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IouNum"
+      EntityAttrName="IouNum"
+      EntityUsage="iouEO"
+      AliasName="IOU_NUM" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PersonId"
+      EntityAttrName="PersonId"
+      EntityUsage="iouEO"
+      AliasName="PERSON_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="EmployeeNumber"
+      IsPersistent="false"
+      Precision="30"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="EMPLOYEE_NUMBER"
+      Expression="EMPLOYEE_NUMBER"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="FullName"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="FULL_NAME"
+      Expression="FULL_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DivisionId"
+      EntityAttrName="DivisionId"
+      EntityUsage="iouEO"
+      AliasName="DIVISION_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Division"
+      EntityAttrName="Division"
+      EntityUsage="iouEO"
+      AliasName="DIVISION" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DivisionName"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DIVISION_NAME"
+      Expression="DIVISION_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IouGivenDate"
+      EntityAttrName="IouGivenDate"
+      EntityUsage="iouEO"
+      AliasName="IOU_GIVEN_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Currency"
+      EntityAttrName="Currency"
+      EntityUsage="iouEO"
+      AliasName="CURRENCY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Amount"
+      EntityAttrName="Amount"
+      EntityUsage="iouEO"
+      AliasName="AMOUNT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ExchangeRate"
+      EntityAttrName="ExchangeRate"
+      EntityUsage="iouEO"
+      AliasName="EXCHANGE_RATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ExchangeRateDate"
+      EntityAttrName="ExchangeRateDate"
+      EntityUsage="iouEO"
+      AliasName="EXCHANGE_RATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ExchangeRateType"
+      EntityAttrName="ExchangeRateType"
+      EntityUsage="iouEO"
+      AliasName="EXCHANGE_RATE_TYPE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AmountOmr"
+      EntityAttrName="AmountOmr"
+      EntityUsage="iouEO"
+      AliasName="AMOUNT_OMR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Remarks"
+      EntityAttrName="Remarks"
+      EntityUsage="iouEO"
+      AliasName="REMARKS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Status"
+      EntityAttrName="Status"
+      EntityUsage="iouEO"
+      AliasName="STATUS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IouClosedDate"
+      EntityAttrName="IouClosedDate"
+      EntityUsage="iouEO"
+      AliasName="IOU_CLOSED_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReasonForClosing"
+      EntityAttrName="ReasonForClosing"
+      EntityUsage="iouEO"
+      AliasName="REASON_FOR_CLOSING" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="BillAmount"
+      EntityAttrName="BillAmount"
+      EntityUsage="iouEO"
+      AliasName="BILL_AMOUNT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="BillAttachment"
+      EntityAttrName="BillAttachment"
+      EntityUsage="iouEO"
+      AliasName="BILL_ATTACHMENT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DiffAmount"
+      EntityAttrName="DiffAmount"
+      EntityUsage="iouEO"
+      AliasName="DIFF_AMOUNT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DiffAmountSettled"
+      EntityAttrName="DiffAmountSettled"
+      EntityUsage="iouEO"
+      AliasName="DIFF_AMOUNT_SETTLED" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attachment"
+      EntityAttrName="Attachment"
+      EntityUsage="iouEO"
+      AliasName="ATTACHMENT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AttributeCategory"
+      EntityAttrName="AttributeCategory"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE_CATEGORY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute1"
+      EntityAttrName="Attribute1"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE1" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute2"
+      EntityAttrName="Attribute2"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE2" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute3"
+      EntityAttrName="Attribute3"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE3" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute4"
+      EntityAttrName="Attribute4"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE4" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute5"
+      EntityAttrName="Attribute5"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE5" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute6"
+      EntityAttrName="Attribute6"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE6" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute7"
+      EntityAttrName="Attribute7"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE7" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute8"
+      EntityAttrName="Attribute8"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE8" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute9"
+      EntityAttrName="Attribute9"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE9" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute10"
+      EntityAttrName="Attribute10"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE10" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute11"
+      EntityAttrName="Attribute11"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE11" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute12"
+      EntityAttrName="Attribute12"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE12" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute13"
+      EntityAttrName="Attribute13"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE13" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute14"
+      EntityAttrName="Attribute14"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE14" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute15"
+      EntityAttrName="Attribute15"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE15" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute16"
+      EntityAttrName="Attribute16"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE16" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute17"
+      EntityAttrName="Attribute17"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE17" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute18"
+      EntityAttrName="Attribute18"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE18" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute19"
+      EntityAttrName="Attribute19"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE19" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute20"
+      EntityAttrName="Attribute20"
+      EntityUsage="iouEO"
+      AliasName="ATTRIBUTE20" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      EntityAttrName="CreationDate"
+      EntityUsage="iouEO"
+      AliasName="CREATION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      EntityAttrName="CreatedBy"
+      EntityUsage="iouEO"
+      AliasName="CREATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="iouEO"
+      AliasName="LAST_UPDATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="iouEO"
+      AliasName="LAST_UPDATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateLogin"
+      EntityAttrName="LastUpdateLogin"
+      EntityUsage="iouEO"
+      AliasName="LAST_UPDATE_LOGIN" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReadOnlyT"
+      IsSelected="false"
+      IsPersistent="false"
+      Type="java.lang.Boolean"
+      ColumnType="NUMBER"
+      AliasName="VIEW_ATTR"
+      SQLType="BIT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="UpdateIcon"
+      IsPersistent="false"
+      Precision="9"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="UPDATE_ICON"
+      Expression="UPDATE_ICON"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="9" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

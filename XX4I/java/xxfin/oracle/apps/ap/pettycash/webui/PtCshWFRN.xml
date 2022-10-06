@@ -1,0 +1,299 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:stackLayout version="10.1.3_" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" standalone="true" amDefName="xxfin.oracle.apps.ap.pettycash.server.PtCshAM" controllerClass="xxfin.oracle.apps.ap.pettycash.webui.PtCshWFCO">
+   <ui:contents>
+      <oa:header id="ClaimHdrRN1" text="Claim Header">
+         <ui:contents>
+            <oa:tableLayout id="TblLayoutRN1" hAlign="center" rendered="true">
+               <ui:contents>
+                  <oa:rowLayout id="RowLayRN15">
+                     <ui:contents>
+                        <oa:cellFormat id="CellReqNumRN15" hAlign="left"/>
+                        <oa:cellFormat id="CelBalRN15" hAlign="center">
+                           <ui:contents>
+                              <oa:defaultSingleColumn id="region7115" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:messageTextInput id="OpeningBal" dataType="NUMBER" prompt="Opening Balance" viewName="PtCshHdrVO1" viewAttr="OpeningBal" readOnly="true"/>
+                                 </ui:contents>
+                              </oa:defaultSingleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="CelNumRN15" hAlign="right"/>
+                     </ui:contents>
+                  </oa:rowLayout>
+                  <oa:rowLayout id="RowLayRN14">
+                     <ui:contents>
+                        <oa:cellFormat id="CellReqNumRN14" hAlign="left">
+                           <ui:contents>
+                              <oa:defaultSingleColumn id="region6114" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:messageStyledText id="RequestNumber114" dataType="VARCHAR2" prompt="Claim Number" viewName="PtCshHdrVO1" viewAttr="RequestNumber" maximumLength="500"/>
+                                    <oa:messageLovInput id="Governate114" dataType="VARCHAR2" prompt="Governate" viewName="PtCshHdrVO1" viewAttr="Governate" maximumLength="500" required="yes" readOnly="true">
+                                       <lovContents>
+                                          <oa:listOfValues id="region7714">
+                                             <ui:contents>
+                                                <oa:table name="region7714" id="GovernateVO114">
+                                                   <ui:contents>
+                                                      <oa:messageStyledText id="LookupCode2124" dataType="VARCHAR2" prompt="Governate" viewName="GovernateVO1" viewAttr="LookupCode" maximumLength="30" queryable="true"/>
+                                                      <oa:messageStyledText id="Meaning2124" dataType="VARCHAR2" prompt="Governate Description" viewName="GovernateVO1" viewAttr="Meaning" maximumLength="80" queryable="true"/>
+                                                   </ui:contents>
+                                                </oa:table>
+                                             </ui:contents>
+                                          </oa:listOfValues>
+                                       </lovContents>
+                                       <lovMappings>
+                                          <lovMap id="lovMap414" lovItem="LookupCode2124" resultTo="Governate114" criteriaFrom="Governate114"/>
+                                       </lovMappings>
+                                    </oa:messageLovInput>
+                                    <oa:messageStyledText id="RequestDate114" dataType="DATE" prompt="Claim Submission Date" viewName="PtCshHdrVO1" viewAttr="RequestDateDesc"/>
+                                 </ui:contents>
+                              </oa:defaultSingleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="CelBalRN14" hAlign="center">
+                           <ui:contents>
+                              <oa:defaultSingleColumn id="region7114" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:messageTextInput id="Receipts114" dataType="NUMBER" prompt="Receipts" viewName="PtCshHdrVO1" viewAttr="ReceiptAmount" readOnly="true"/>
+                                    <oa:messageTextInput id="ClaimAmount114" dataType="VARCHAR2" prompt="Claim Amount" viewName="PtCshHdrVO1" viewAttr="ClaimLineAmount" maximumLength="240" readOnly="true"/>
+                                    <oa:messageTextInput id="StaffIouAmount114" dataType="VARCHAR2" prompt="Staff IOU Amount" viewName="PtCshHdrVO1" viewAttr="StaffIouAmount" maximumLength="240" rendered="${oa.PtCshHdrVO1.DispModeLoc}" required="no" readOnly="true"/>
+                                 </ui:contents>
+                              </oa:defaultSingleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="CelNumRN14" hAlign="right">
+                           <ui:contents>
+                              <oa:defaultSingleColumn id="region801614" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:messageStyledText id="ReceiptLines14" prompt="Number" viewName="PtCshHdrVO1" viewAttr="ReceiptLineCnt"/>
+                                    <oa:messageStyledText id="ClaimLineCnt14" viewName="PtCshHdrVO1" viewAttr="ClaimLineCnt" prompt="Number"/>
+                                    <oa:messageStyledText id="IOULineCnt14" prompt="Number" viewName="PtCshHdrVO1" viewAttr="StaffIouNumber" rendered="${oa.PtCshHdrVO1.DispModeLoc}"/>
+                                 </ui:contents>
+                              </oa:defaultSingleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+                  <oa:rowLayout id="RowLayRN13">
+                     <ui:contents>
+                        <oa:cellFormat id="CellReqNumRN13" hAlign="left">
+                           <ui:contents>
+                              <oa:defaultSingleColumn id="region6113" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:messageTextInput id="VendorName113" dataType="VARCHAR2" prompt="Supplier Name" viewName="PtCshHdrVO1" viewAttr="VendorName" maximumLength="500" rendered="${oa.PtCshHdrVO1.DispModeLoc}" readOnly="true"/>
+                                    <oa:messageTextInput id="VendorSiteName113" dataType="VARCHAR2" prompt="Supplier Site Name" viewName="PtCshHdrVO1" viewAttr="VendorSiteName" maximumLength="500" rendered="${oa.PtCshHdrVO1.DispModeLoc}" readOnly="true"/>
+                                 </ui:contents>
+                              </oa:defaultSingleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="CelBalRN13" hAlign="center">
+                           <ui:contents>
+                              <oa:defaultSingleColumn id="region7113" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:messageStyledText id="ClosingBalance113" dataType="NUMBER" prompt="Closing Balance" viewName="PtCshHdrVO1" viewAttr="ClosingBalDesc"/>
+                                    <oa:messageTextInput id="CashInHand113" dataType="NUMBER" prompt="Cash In Hand" viewName="PtCshHdrVO1" viewAttr="CashInHand" required="no" readOnly="true"/>
+                                 </ui:contents>
+                              </oa:defaultSingleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="CelNumRN13" hAlign="right">
+                           <ui:contents>
+                              <oa:attachmentLink id="item117" prompt="Attachment" viewName="PtCshHdrVO1" inlineAttachmentEnabled="true" rendered="${oa.PtCshHdrVO1.DisSiteLinesOps}">
+                                 <oa:entityMappings>
+                                    <oa:entityMap id="entityMap2" entityId="XXFIN_PTYCSH_HDR" insertAllowed="false" updateAllowed="false" deleteAllowed="false">
+                                       <oa:primaryKeys>
+                                          <oa:primaryKey id="primaryKey2" viewAttr="PtycshHdrId"/>
+                                       </oa:primaryKeys>
+                                       <oa:categoryMappings>
+                                          <oa:categoryMap id="categoryMap2" categoryName="MISC"/>
+                                       </oa:categoryMappings>
+                                    </oa:entityMap>
+                                 </oa:entityMappings>
+                              </oa:attachmentLink>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:tableLayout>
+         </ui:contents>
+      </oa:header>
+      <oa:header id="ClaimLinesRN" rendered="true">
+         <ui:contents>
+            <oa:table id="claimLinesTblRN">
+               <ui:contents>
+                  <oa:messageTextInput id="DtlNumDesc" dataType="VARCHAR2" prompt="Line Number" viewName="PtCshDtlVO1" viewAttr="DtlNumAct" maximumLength="240" readOnly="true"/>
+                  <oa:messageTextInput id="DtlRequestNumber" dataType="VARCHAR2" prompt="Site Request Number" viewName="PtCshDtlVO1" viewAttr="RequestNumber" maximumLength="240" readOnly="true" rendered="${oa.PtCshHdrVO1.DisSiteLinesOps}"/>
+                  <oa:messageLovInput id="ExpenseType" dataType="VARCHAR2" prompt="* Expense Type" maximumLength="240" required="no" viewName="PtCshDtlVO1" viewAttr="ExpenseTypeDesc" readOnly="${oa.PtCshHdrVO1.hideWfValues}">
+                     <lovContents>
+                        <oa:listOfValues id="region80" amDefName="xxfin.oracle.apps.ap.pettycash.server.PtCshAM">
+                           <ui:contents>
+                              <oa:table name="region80" id="ExpenseTypeVO1">
+                                 <ui:contents>
+                                    <oa:formValue id="LookupCode2" dataType="VARCHAR2" prompt="Lookup Code" viewName="ExpenseTypeVO1" viewAttr="LookupCode" queryable="true"/>
+                                    <oa:messageStyledText id="Meaning2" dataType="VARCHAR2" prompt="Meaning" viewName="ExpenseTypeVO1" viewAttr="Meaning" maximumLength="80" queryable="true"/>
+                                    <oa:messageStyledText id="Description4" dataType="VARCHAR2" prompt="Account Number" viewName="ExpenseTypeVO1" viewAttr="Description" maximumLength="240" queryable="true"/>
+                                    <oa:messageStyledText id="Tag" dataType="VARCHAR2" prompt="Tag" viewName="ExpenseTypeVO1" viewAttr="Tag" maximumLength="150" queryable="true"/>
+                                 </ui:contents>
+                              </oa:table>
+                           </ui:contents>
+                        </oa:listOfValues>
+                     </lovContents>
+                     <lovMappings>
+                        <lovMap id="lovMap7" lovItem="Meaning2" resultTo="ExpenseType" criteriaFrom="ExpenseType"/>
+                        <lovMap id="lovMap8" lovItem="Description4" resultTo="AccountNum"/>
+                        <lovMap id="lovMap9" lovItem="Tag" resultTo="AccountDescription"/>
+                        <lovMap id="lovMap11" lovItem="LookupCode2" resultTo="item1"/>
+                        <lovMap id="lovMap12" lovItem="Description4" resultTo="item31"/>
+                        <lovMap id="lovMap13" lovItem="Tag" resultTo="item3"/>
+                     </lovMappings>
+                  </oa:messageLovInput>
+                  <oa:messageLovInput id="Department1" dataType="VARCHAR2" prompt="* Department" maximumLength="240" required="no" viewName="PtCshDtlVO1" viewAttr="DepartmentDesc" readOnly="${oa.PtCshHdrVO1.hideWfValues}">
+                     <lovContents>
+                        <oa:listOfValues id="region741">
+                           <ui:contents>
+                              <oa:table name="region741" id="ExpenseTypeVO2">
+                                 <ui:contents>
+                                    <oa:formValue id="LookupType" dataType="VARCHAR2" prompt="LookupType" viewName="ExpenseTypeVO2" viewAttr="LookupType"/>
+                                    <oa:messageStyledText id="LookupCode2125" dataType="VARCHAR2" prompt="Department Code" viewName="ExpenseTypeVO2" viewAttr="LookupCode" maximumLength="30" queryable="true"/>
+                                    <oa:messageStyledText id="Meaning2125" dataType="VARCHAR2" prompt="Department" viewName="ExpenseTypeVO2" viewAttr="Meaning" maximumLength="80" queryable="true"/>
+                                    <oa:formValue id="Description3" dataType="VARCHAR2" prompt="Description" viewName="ExpenseTypeVO2" viewAttr="Description"/>
+                                    <oa:formValue id="Tag1" dataType="VARCHAR2" prompt="Tag" viewName="ExpenseTypeVO2" viewAttr="Tag"/>
+                                 </ui:contents>
+                              </oa:table>
+                           </ui:contents>
+                        </oa:listOfValues>
+                     </lovContents>
+                     <lovMappings>
+                        <lovMap id="lovMap14" lovItem="LookupCode" resultTo="item2" criteriaFrom="item2"/>
+                        <lovMap id="lovMap15" lovItem="Meaning" resultTo="Department1"/>
+                     </lovMappings>
+                  </oa:messageLovInput>
+                  <oa:messageLovInput id="Department" dataType="VARCHAR2" prompt="* Department" maximumLength="240" required="no" viewName="PtCshDtlVO1" viewAttr="DepartmentDesc" rendered="false" readOnly="${oa.PtCshHdrVO1.hideWfValues}">
+                     <lovContents>
+                        <oa:listOfValues id="region74" amDefName="xxfin.oracle.apps.ap.pettycash.server.PtCshAM">
+                           <ui:contents>
+                              <oa:table name="region74" id="DeptVO1">
+                                 <ui:contents>
+                                    <oa:formValue id="FlexValue" dataType="VARCHAR2" prompt="Department Number" viewName="DeptVO1" viewAttr="FlexValue" queryable="true" selectiveSearchCriteria="false"/>
+                                    <oa:messageStyledText id="FlexValueMeaning" dataType="VARCHAR2" prompt="Department Number" viewName="DeptVO1" viewAttr="FlexValueMeaning" maximumLength="150" queryable="true"/>
+                                    <oa:messageStyledText id="Description" dataType="VARCHAR2" prompt="Department Description" viewName="DeptVO1" viewAttr="Description" maximumLength="240" queryable="true" selectiveSearchCriteria="false"/>
+                                 </ui:contents>
+                              </oa:table>
+                           </ui:contents>
+                        </oa:listOfValues>
+                     </lovContents>
+                     <lovMappings>
+                        <lovMap id="lovMap1" lovItem="FlexValue" resultTo="item2" criteriaFrom="item2"/>
+                        <lovMap id="lovMap10" lovItem="Description" resultTo="Department"/>
+                     </lovMappings>
+                  </oa:messageLovInput>
+                  <oa:formValue id="item1" viewName="PtCshDtlVO1" viewAttr="ExpenseType"/>
+                  <oa:formValue id="item2" viewName="PtCshDtlVO1" viewAttr="Department"/>
+                  <oa:formValue id="item31" viewName="PtCshDtlVO1" viewAttr="AccountNum"/>
+                  <oa:formValue id="item3" viewName="PtCshDtlVO1" viewAttr="AccountDescription"/>
+                  <oa:messageStyledText id="AccountNum" dataType="VARCHAR2" prompt="Account" viewName="PtCshDtlVO1" viewAttr="AccountNum" maximumLength="240"/>
+                  <oa:messageStyledText id="AccountDescription" dataType="VARCHAR2" prompt="Account Description" viewName="PtCshDtlVO1" viewAttr="AccountDescription" maximumLength="2000"/>
+                  <oa:messageLovInput id="Currency1" dataType="VARCHAR2" prompt="Currency" viewName="PtCshDtlVO1" viewAttr="Currency" required="yes" readOnly="true">
+                     <lovContents>
+                        <oa:listOfValues id="region751">
+                           <ui:contents>
+                              <oa:table name="region751" id="CurrencyVO11">
+                                 <ui:contents>
+                                    <oa:messageStyledText id="CurrencyCode2" dataType="VARCHAR2" prompt="Currency Code" viewName="CurrencyVO1" viewAttr="CurrencyCode" maximumLength="15" queryable="true"/>
+                                    <oa:messageStyledText id="CurrName1" dataType="VARCHAR2" prompt="Name" viewName="CurrencyVO1" viewAttr="Name" maximumLength="80" queryable="true"/>
+                                    <oa:messageStyledText id="Description11" dataType="VARCHAR2" prompt="Description" viewName="CurrencyVO1" viewAttr="Description" maximumLength="240" queryable="true"/>
+                                 </ui:contents>
+                              </oa:table>
+                           </ui:contents>
+                        </oa:listOfValues>
+                     </lovContents>
+                     <lovMappings>
+                        <lovMap id="lovMap21" lovItem="CurrencyCode" resultTo="Currency" criteriaFrom="Currency"/>
+                     </lovMappings>
+                  </oa:messageLovInput>
+                  <oa:messageLovInput id="ExchangeRateType1" dataType="VARCHAR2" prompt="Exchange Rate Type" viewName="PtCshDtlVO1" viewAttr="ExchangeRateType" maximumLength="240" readOnly="true">
+                     <lovContents>
+                        <oa:listOfValues id="region761">
+                           <ui:contents>
+                              <oa:table name="region761" id="ConversionTypeVO11">
+                                 <ui:contents>
+                                    <oa:messageStyledText id="ConversionType1" dataType="VARCHAR2" prompt="Conversion Type" viewName="ConversionTypeVO1" viewAttr="ConversionType" maximumLength="30" queryable="true"/>
+                                    <oa:messageStyledText id="Description21" dataType="VARCHAR2" prompt="Description" viewName="ConversionTypeVO1" viewAttr="Description" maximumLength="240" queryable="true"/>
+                                 </ui:contents>
+                              </oa:table>
+                           </ui:contents>
+                        </oa:listOfValues>
+                     </lovContents>
+                     <lovMappings>
+                        <lovMap id="lovMap31" lovItem="ConversionType" resultTo="ExchangeRateType" criteriaFrom="ExchangeRateType"/>
+                     </lovMappings>
+                  </oa:messageLovInput>
+                  <oa:messageTextInput id="ExchangeRateDate1" dataType="DATE" prompt="Exchange Rate Date" viewName="PtCshDtlVO1" viewAttr="ExchangeRateDate" readOnly="true">
+                     <ui:primaryClientAction>
+                        <ui:firePartialAction event="EXCHRATEDATE" id="firePartialAction1"/>
+                     </ui:primaryClientAction>
+                  </oa:messageTextInput>
+                  <oa:messageStyledText id="ExchangeRate1" dataType="VARCHAR2" prompt="Exchange Rate" viewName="PtCshDtlVO1" viewAttr="ExchangeRate" maximumLength="240"/>
+                  <oa:messageTextInput id="Amount1111" dataType="NUMBER" prompt="Amount in OMR" viewName="PtCshDtlVO1" viewAttr="AmountInOmr" required="no" readOnly="true"/>
+                  <oa:messageTextInput id="BriefNarration1" dataType="VARCHAR2" prompt="Brief Narration" viewName="PtCshDtlVO1" viewAttr="BriefNarration" maximumLength="2000" required="yes" readOnly="true"/>
+                  <oa:messageTextInput id="Amount111" dataType="NUMBER" prompt="Amount in OMR" viewName="PtCshDtlVO1" viewAttr="AmountInOmr" required="yes" readOnly="true"/>
+                  <oa:messageTextInput id="BudgetRes1" prompt="Budget Results" viewName="PtCshDtlVO1" viewAttr="BudgetResultsDesc" readOnly="true"/>
+                  <oa:messageTextInput id="ConcatenatedSeg" prompt="Concatenated Segments" viewName="PtCshDtlVO1" viewAttr="ConcatenatedSegments" rendered="false"/>
+                  <oa:messageStyledText id="UpdatedByUsername1" viewName="PtCshDtlVO1" viewAttr="UpdatedByUsername" prompt="Updated UserName"/>
+                  <oa:messageStyledText id="CreatedByUsername1" viewName="PtCshDtlVO1" viewAttr="CreatedByUsername" prompt="Created UserName"/>
+                  <oa:switcher id="region801615" viewName="PtCshDtlVO1" viewAttr="AttachRoUpd">
+                     <ui:case name="ROAttach">
+                        <oa:attachmentImage id="ROAttach" viewName="PtCshDtlVO1" inlineAttachmentEnabled="true" enableDocumentCatalog="false" prompt="Attachments_RO">
+                           <oa:entityMappings>
+                              <oa:entityMap id="entityMap11" entityId="XXFIN_PTYCSH_LINE" insertAllowed="false" updateAllowed="false" deleteAllowed="false">
+                                 <oa:primaryKeys>
+                                    <oa:primaryKey id="primaryKey11" viewAttr="PtycshDtlId"/>
+                                 </oa:primaryKeys>
+                                 <oa:categoryMappings>
+                                    <oa:categoryMap id="categoryMap11" categoryName="MISC"/>
+                                 </oa:categoryMappings>
+                              </oa:entityMap>
+                           </oa:entityMappings>
+                        </oa:attachmentImage>
+                     </ui:case>
+                     <ui:case name="UpdAttach">
+                        <oa:attachmentImage id="UpdAttach" viewName="PtCshDtlVO1" inlineAttachmentEnabled="true" enableDocumentCatalog="false" prompt="Attachments_Upd">
+                           <oa:entityMappings>
+                              <oa:entityMap id="entityMap111" entityId="XXFIN_PTYCSH_LINE" insertAllowed="false" updateAllowed="true" deleteAllowed="false">
+                                 <oa:primaryKeys>
+                                    <oa:primaryKey id="primaryKey111" viewAttr="PtycshDtlId"/>
+                                 </oa:primaryKeys>
+                                 <oa:categoryMappings>
+                                    <oa:categoryMap id="categoryMap111" categoryName="MISC"/>
+                                 </oa:categoryMappings>
+                              </oa:entityMap>
+                           </oa:entityMappings>
+                        </oa:attachmentImage>
+                     </ui:case>
+                  </oa:switcher>
+                  <oa:flex id="KeyFlexItem2" prompt="Accounting Key Flex Field" flexFieldAppShortName="SQLGL" flexName="GL#" flexStyle="key" viewName="PtCshDtlVO1" readOnly="${oa.PtCshHdrVO1.hideWfValues}"/>
+               </ui:contents>
+               <ui:tableActions>
+                  <oa:flowLayout id="region721"/>
+               </ui:tableActions>
+            </oa:table>
+         </ui:contents>
+      </oa:header>
+      <oa:stackLayout id="region802" rendered="false">
+         <ui:contents>
+            <oa:flex id="KeyFlexItem" prompt="Accounting Key Flex Field" flexFieldAppShortName="SQLGL" flexName="GL#" flexStyle="key" viewName="CodeCombinationVO1"/>
+         </ui:contents>
+      </oa:stackLayout>
+      <oa:stackLayout id="region803" rendered="false">
+         <ui:contents>
+            <oa:flex id="KeyFlexItem1" prompt="Accounting Key Flex Field" flexFieldAppShortName="SQLGL" flexName="GL#" flexStyle="key" viewName="PtCshDtlVO1"/>
+         </ui:contents>
+      </oa:stackLayout>
+      <oa:pageButtonBar id="pgBtnRN" rendered="${oa.PtCshHdrVO1.WFButtonRNEnable}">
+         <ui:contents>
+            <oa:submitButton id="WFSave" text="Save" prompt="Save"/>
+            <oa:submitButton id="WFCancel" text="Cancel" prompt="Cancel"/>
+         </ui:contents>
+      </oa:pageButtonBar>
+   </ui:contents>
+</oa:stackLayout>

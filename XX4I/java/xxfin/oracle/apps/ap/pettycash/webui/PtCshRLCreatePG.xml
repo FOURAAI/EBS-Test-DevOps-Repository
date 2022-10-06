@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="region1" amDefName="xxfin.oracle.apps.ap.pettycash.server.PtCshAM" windowTitle="Receipt Lines Create Page" title="Receipt Lines Create Page" controllerClass="xxfin.oracle.apps.ap.pettycash.webui.PtCshRLCreateCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:defaultSingleColumn id="PtCshRecptVO1" rendered="true" headerDisabled="true">
+               <ui:contents>
+                  <oa:messageLovInput id="RMopReceived" dataType="VARCHAR2" prompt="* Mode of Payment Received" maximumLength="240" required="no" viewName="PtCshRecptVO1" viewAttr="RMopReceivedDesc">
+                     <lovContents>
+                        <oa:listOfValues id="region78">
+                           <ui:contents>
+                              <oa:table name="region78" id="PaymentModeVO1">
+                                 <ui:contents>
+                                    <oa:formValue id="LookupCode1" dataType="VARCHAR2" prompt="LookupCode" viewName="PaymentModeVO1" viewAttr="LookupCode" queryable="true"/>
+                                    <oa:messageStyledText id="Meaning1" dataType="VARCHAR2" prompt="Description" viewName="PaymentModeVO1" viewAttr="Meaning" maximumLength="80" queryable="true"/>
+                                 </ui:contents>
+                              </oa:table>
+                           </ui:contents>
+                        </oa:listOfValues>
+                     </lovContents>
+                     <lovMappings>
+                        <lovMap id="lovMap5" lovItem="Meaning1" resultTo="RMopReceived" criteriaFrom="RMopReceived"/>
+                        <lovMap id="lovMap7" lovItem="LookupCode1" resultTo="item2"/>
+                     </lovMappings>
+                  </oa:messageLovInput>
+                  <oa:formValue id="item2" viewName="PtCshRecptVO1" viewAttr="RMopReceived"/>
+                  <oa:messageTextInput id="RReferenceNumber" dataType="VARCHAR2" prompt="Reference Number" viewName="PtCshRecptVO1" viewAttr="RReferenceNumber" maximumLength="240"/>
+                  <oa:messageLovInput id="RCurrency" dataType="VARCHAR2" prompt="Currency" viewName="PtCshRecptVO1" viewAttr="RCurrency" maximumLength="240">
+                     <lovContents>
+                        <oa:listOfValues id="region79">
+                           <ui:contents>
+                              <oa:table name="region79" id="CurrencyVO2">
+                                 <ui:contents>
+                                    <oa:messageStyledText id="CurrencyCode1" dataType="VARCHAR2" prompt="Currency Code" viewName="CurrencyVO2" viewAttr="CurrencyCode" maximumLength="15"/>
+                                    <oa:messageStyledText id="item1" dataType="VARCHAR2" prompt="Name" viewName="CurrencyVO2" viewAttr="Name" maximumLength="80"/>
+                                    <oa:messageStyledText id="Description3" dataType="VARCHAR2" prompt="Description" viewName="CurrencyVO2" viewAttr="Description" maximumLength="240"/>
+                                 </ui:contents>
+                              </oa:table>
+                           </ui:contents>
+                        </oa:listOfValues>
+                     </lovContents>
+                     <lovMappings>
+                        <lovMap id="lovMap6" lovItem="CurrencyCode1" resultTo="RCurrency" criteriaFrom="RCurrency"/>
+                     </lovMappings>
+                  </oa:messageLovInput>
+                  <oa:messageTextInput id="RAmount" dataType="NUMBER" prompt="* Amount" viewName="PtCshRecptVO1" viewAttr="RAmount" required="no"/>
+                  <oa:messageTextInput id="RPaymentReceivedDate" dataType="DATE" prompt="* Payment Received Date" viewName="PtCshRecptVO1" viewAttr="RPaymentReceivedDate" required="no"/>
+                  <oa:messageTextInput id="RBriefNarration" dataType="VARCHAR2" prompt="* Brief Narration" viewName="PtCshRecptVO1" viewAttr="RBriefNarration" maximumLength="2000" columns="70"/>
+                  <oa:messageFileUpload id="RAttachFile" dataType="BLOB" prompt="* Attachment" viewName="PtCshRecptVO1" viewAttr="RAttachFile" required="no"/>
+               </ui:contents>
+            </oa:defaultSingleColumn>
+            <oa:pageButtonBar id="region80">
+               <ui:contents>
+                  <oa:submitButton id="save" text="Save" prompt="Save">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="SAVE"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+                  <oa:submitButton id="cancel" text="Cancel" prompt="Cancel">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="CANCEL"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+               </ui:contents>
+            </oa:pageButtonBar>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

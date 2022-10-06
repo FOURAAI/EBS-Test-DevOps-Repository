@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="BudgetCntVO"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="oracle.apps.fnd.framework.server.OAViewRowImpl"
+   ComponentClass="xxfin.oracle.apps.ap.pettycash.poplist.server.BudgetCntVOImpl"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+select count(PTYCSH_DTL_ID) cnt_rec,
+sum(case when xxhw_fin_pettycash_util_pkg.PTYCSH_IS_FUND_AVAIL(PTYCSH_DTL_ID)='Successful' then 0
+else 1 end) BUDGET_RESULTS_DESC_CNT  ,
+PTYCSH_HDR_ID  
+	from xxfin_ap_pettycash_dtl_v group by PTYCSH_HDR_ID
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <ViewAttribute
+      Name="CntRec"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="CNT_REC"
+      Expression="CNT_REC"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="BudgetResultsDescCnt"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="BUDGET_RESULTS_DESC_CNT"
+      Expression="BUDGET_RESULTS_DESC_CNT"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PtycshHdrId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="PTYCSH_HDR_ID"
+      Expression="PTYCSH_HDR_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

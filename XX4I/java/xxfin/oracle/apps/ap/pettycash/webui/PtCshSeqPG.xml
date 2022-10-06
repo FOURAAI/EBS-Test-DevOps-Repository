@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="region1" amDefName="xxfin.oracle.apps.ap.pettycash.server.PtCshAM" windowTitle="Petty Cash Sequence Page" title="Petty Cash Sequence Page" controllerClass="xxfin.oracle.apps.ap.pettycash.webui.PtCshSeqCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:table id="PtCshSeqVO11">
+               <ui:contents>
+                  <oa:messageTextInput id="PtycshSeqId1" dataType="NUMBER" prompt="SNo" viewName="PtCshSeqVO1" viewAttr="PtycshSeqId" readOnly="true"/>
+                  <oa:messageLovInput id="DivisionName1" dataType="VARCHAR2" prompt="Division Name" viewName="PtCshSeqVO1" viewAttr="DivisionName" maximumLength="240" required="yes">
+                     <lovContents>
+                        <oa:listOfValues id="region2">
+                           <ui:contents>
+                              <oa:table name="region2" id="SeqClaimPrefixVO1">
+                                 <ui:contents>
+                                    <oa:messageStyledText id="LookupCode" dataType="VARCHAR2" prompt="Prefix" viewName="SeqClaimPrefixVO1" viewAttr="LookupCode" maximumLength="30" queryable="true" rendered="false"/>
+                                    <oa:messageStyledText id="Meaning" dataType="VARCHAR2" prompt="Prefix" viewName="SeqClaimPrefixVO1" viewAttr="Meaning" maximumLength="80" queryable="true"/>
+                                    <oa:messageStyledText id="Description" dataType="VARCHAR2" prompt="Division/Site" viewName="SeqClaimPrefixVO1" viewAttr="Description" maximumLength="30" queryable="true"/>
+                                 </ui:contents>
+                              </oa:table>
+                           </ui:contents>
+                        </oa:listOfValues>
+                     </lovContents>
+                     <lovMappings>
+                        <lovMap id="lovMap1" lovItem="Description" resultTo="DivisionName1" criteriaFrom="DivisionName1"/>
+                        <lovMap id="lovMap2" lovItem="Meaning" resultTo="SeqPrefix1"/>
+                        <lovMap id="lovMap3" lovItem="Meaning" resultTo="item1"/>
+                     </lovMappings>
+                  </oa:messageLovInput>
+                  <oa:formValue id="item1" viewName="PtCshSeqVO1" viewAttr="SeqPrefix"/>
+                  <oa:messageTextInput id="SeqPrefix1" dataType="VARCHAR2" prompt="Prefrix" viewName="PtCshSeqVO1" viewAttr="SeqPrefix" maximumLength="240" readOnly="true"/>
+                  <oa:messageTextInput id="StartingNumber1" dataType="NUMBER" prompt="Starting Number" viewName="PtCshSeqVO1" viewAttr="StartingNumber" readOnly="false" required="yes"/>
+                  <oa:messageTextInput id="DateStart1" dataType="DATE" prompt="Date Start" viewName="PtCshSeqVO1" viewAttr="DateStart" readOnly="false" required="yes"/>
+                  <oa:messageTextInput id="DateEnd1" dataType="DATE" prompt="Date End" viewName="PtCshSeqVO1" viewAttr="DateEnd" readOnly="false" required="yes"/>
+                  <oa:messageTextInput id="CurrentRunningSequence" dataType="NUMBER" prompt="Current Running Sequence" viewName="PtCshSeqVO1" viewAttr="CurRunSequence" readOnly="true"/>
+               </ui:contents>
+               <ui:tableActions>
+                  <oa:flowLayout id="region3">
+                     <ui:contents>
+                        <oa:submitButton id="AddRows" text="Add" prompt="Add">
+                           <ui:primaryClientAction>
+                              <ui:firePartialAction event="ADDROWS"/>
+                           </ui:primaryClientAction>
+                        </oa:submitButton>
+                     </ui:contents>
+                  </oa:flowLayout>
+               </ui:tableActions>
+            </oa:table>
+            <oa:header id="PtCshSeqVO1" rendered="false">
+               <ui:contents>
+                  <oa:messageTextInput id="PtycshSeqId" dataType="NUMBER" prompt="PtycshSeqId" viewName="PtCshSeqVO1" viewAttr="PtycshSeqId"/>
+                  <oa:messageTextInput id="DivisionName" dataType="VARCHAR2" prompt="DivisionName" viewName="PtCshSeqVO1" viewAttr="DivisionName" maximumLength="240"/>
+                  <oa:messageTextInput id="StartingNumber" dataType="NUMBER" prompt="StartingNumber" viewName="PtCshSeqVO1" viewAttr="StartingNumber"/>
+                  <oa:messageTextInput id="SeqPrefix" dataType="VARCHAR2" prompt="SeqPrefix" viewName="PtCshSeqVO1" viewAttr="SeqPrefix" maximumLength="240"/>
+                  <oa:messageTextInput id="DateStart" dataType="DATE" prompt="DateStart" viewName="PtCshSeqVO1" viewAttr="DateStart" rendered="true"/>
+                  <oa:messageTextInput id="DateEnd" dataType="DATE" prompt="DateEnd" viewName="PtCshSeqVO1" viewAttr="DateEnd" rendered="true"/>
+                  <oa:messageTextInput id="CurrentSeq" viewName="PtCshSeqVO1" viewAttr="CurrentRunningSequence"/>
+               </ui:contents>
+            </oa:header>
+            <oa:pageButtonBar id="PgBtnBarRN">
+               <ui:contents>
+                  <oa:submitButton id="Save" text="Save" prompt="Save"/>
+                  <oa:submitButton id="Refresh" prompt="Clear" text="Clear"/>
+               </ui:contents>
+            </oa:pageButtonBar>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:pageLayout xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:oa="http://xmlns.oracle.com/oa" version="10.1.3_" xml:lang="en-US" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" controllerClass="xxfin.oracle.apps.ap.iou.webui.iouWFCO" amDefName="xxfin.oracle.apps.ap.iou.server.iouAM" windowTitle="IOU Details">
+   <ui:corporateBranding>
+      <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+   </ui:corporateBranding>
+   <ui:contents>
+      <oa:rawText id="item14" text="&lt;BR> &lt;font size = &quot;3&quot;> &lt;b> Hi,&lt;/font> &lt;BR> &lt;BR> &lt;font size = &quot;3&quot;> &lt;b> Find below the details of the IOU created.&lt;/font> &lt;font size = &quot;1&quot;>&lt;h1 style=&quot;color:Tomato;&quot;>Kindly submit the Bills to Focal Point within 3 working days as per policy. &lt;/h1> &lt;/b> &lt;/font>"/>
+      <oa:header id="Details" text="Staff IOU Details">
+         <ui:contents>
+            <oa:messageComponentLayout id="MCL1">
+               <ui:contents>
+                  <oa:messageStyledText id="IOUNumber" viewName="iouVO" viewAttr="IouNum" prompt="IOU Number"/>
+                  <oa:messageLovInput id="EmployeeNumber" viewName="iouVO" viewAttr="EmployeeNumber" externalListOfValues="/xxfin/oracle/apps/ap/iou/lov/webui/iuoEmpLOVRN" prompt="Employee Number" required="no" readOnly="true">
+                     <lovMappings>
+                        <lovMap id="lovMap1" lovItem="EmployeeNumber" resultTo="EmployeeNumber"/>
+                        <lovMap id="lovMap3" lovItem="FullName" resultTo="FullName"/>
+                        <lovMap id="lovMap4" lovItem="PersonId" resultTo="PerID" criteriaFrom="PerID"/>
+                     </lovMappings>
+                  </oa:messageLovInput>
+                  <oa:messageLovInput id="FullName" viewName="iouVO" viewAttr="FullName" externalListOfValues="/xxfin/oracle/apps/ap/iou/lov/webui/iuoEmpLOVRN" prompt="Employee Name" required="no" readOnly="true">
+                     <lovMappings>
+                        <lovMap id="lovMap2" lovItem="EmployeeNumber" resultTo="EmployeeNumber"/>
+                        <lovMap id="lovMap5" lovItem="FullName" resultTo="FullName"/>
+                        <lovMap id="lovMap6" lovItem="PersonId" resultTo="PerID" criteriaFrom="PerID"/>
+                     </lovMappings>
+                  </oa:messageLovInput>
+                  <oa:messageStyledText id="IOUGivenDate" dataType="DATE" viewName="iouVO" viewAttr="IouGivenDate" prompt="IOU Given Date" required="no"/>
+                  <oa:messageStyledText id="CurrencyLOV" viewName="iouVO" viewAttr="Currency" prompt="Currency" required="no"/>
+                  <oa:messageStyledText id="Amount" viewName="iouVO" viewAttr="Amount" prompt="Amount" required="no"/>
+                  <oa:messageStyledText id="ExRateType" viewName="iouVO" viewAttr="ExchangeRateType" prompt="Exchange Rate Type"/>
+                  <oa:messageStyledText id="ExRateDate" viewName="iouVO" viewAttr="ExchangeRateDate" prompt="Exchange Rate Date" dataType="VARCHAR2"/>
+                  <oa:messageStyledText id="ExchangeRate" viewName="iouVO" viewAttr="ExchangeRate" prompt="Exchange Rate"/>
+                  <oa:messageStyledText id="AmountOmr" viewName="iouVO" viewAttr="AmountOmr" prompt="Amount in OMR"/>
+                  <oa:messageStyledText id="Remarks" viewName="iouVO" viewAttr="Remarks" prompt="Remarks" rows="5" columns="50" required="no"/>
+               </ui:contents>
+            </oa:messageComponentLayout>
+            <oa:formValue id="PerID" dataType="NUMBER" viewName="iouVO" viewAttr="PersonId"/>
+            <oa:header id="AttachmentRN" text="Attachments">
+               <ui:contents>
+                  <oa:attachmentLink id="Documents" viewName="iouVO" prompt="Attachments" text="View" rendered="true" enableDocumentCatalog="false" inlineAttachmentEnabled="true">
+                     <oa:entityMappings>
+                        <oa:entityMap id="entityMap2" deleteAllowed="false" entityId="XXFIN_IOU_FOCAL" insertAllowed="false" updateAllowed="false">
+                           <oa:primaryKeys>
+                              <oa:primaryKey id="primaryKey2" viewAttr="IouId"/>
+                           </oa:primaryKeys>
+                           <oa:categoryMappings>
+                              <oa:categoryMap id="categoryMap1" categoryName="MISC"/>
+                           </oa:categoryMappings>
+                        </oa:entityMap>
+                     </oa:entityMappings>
+                  </oa:attachmentLink>
+               </ui:contents>
+            </oa:header>
+            <oa:header id="HistoryRN" text="Record History">
+               <ui:contents>
+                  <oa:advancedTable id="HistTable" viewName="iouHistVO" width="100%">
+                     <ui:contents>
+                        <oa:column id="column1">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader1" prompt="Created By"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item1" viewAttr="CreatedBy"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="column11">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader11" prompt="Creation Date"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item11" viewAttr="CreationDate"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="column12">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader12" prompt="Last Updated By"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item12" viewAttr="UpdatedBy" prompt="Last Updated By"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="column13">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader13" prompt="Last Update Date"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item13" viewAttr="LastUpdateDate"/>
+                           </ui:contents>
+                        </oa:column>
+                     </ui:contents>
+                  </oa:advancedTable>
+               </ui:contents>
+            </oa:header>
+         </ui:contents>
+      </oa:header>
+   </ui:contents>
+</oa:pageLayout>

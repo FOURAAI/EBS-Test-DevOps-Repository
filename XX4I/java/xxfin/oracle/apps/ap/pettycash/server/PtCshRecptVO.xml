@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="PtCshRecptVO"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="oracle.apps.fnd.framework.server.OAViewRowImpl"
+   ComponentClass="xxfin.oracle.apps.ap.pettycash.server.PtCshRecptVOImpl"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+select 
+
+    row_id,
+    ptycsh_recpt_id,
+    ptycsh_hdr_id,
+request_number,
+    r_mop_received             ,
+r_mop_received_desc,
+    r_reference_number         ,
+    r_currency                 ,
+    r_amount                   ,
+    r_payment_received_date    ,
+    r_brief_narration          ,
+R_UPD_IMG,
+    R_DEL_IMG,
+
+    r_attach_file              ,
+    r_file_desc                ,
+    attribute_category,
+    attribute1,
+    attribute2,
+    attribute3,
+    attribute4,
+    attribute5,
+    attribute6,
+    attribute7,
+    attribute8,
+    attribute9,
+    attribute10,
+    created_by,
+    creation_date,
+    last_updated_by,
+    last_update_date,
+    last_update_login
+	from xxfin_ap_pettycash_recpt_v
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <EntityUsage
+      Name="PtCshRecptEO"
+      Entity="xxfin.oracle.apps.ap.pettycash.schema.server.PtCshRecptEO" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="RowId1"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.RowID"
+      ColumnType="ROWID"
+      AliasName="ROW_ID"
+      Expression="ROW_ID"
+      SQLType="ROWID" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PtycshRecptId"
+      IsNotNull="true"
+      EntityAttrName="PtycshRecptId"
+      EntityUsage="PtCshRecptEO"
+      AliasName="PTYCSH_RECPT_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PtycshHdrId"
+      EntityAttrName="PtycshHdrId"
+      EntityUsage="PtCshRecptEO"
+      AliasName="PTYCSH_HDR_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RequestNumber"
+      IsPersistent="false"
+      Precision="500"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="REQUEST_NUMBER"
+      Expression="REQUEST_NUMBER"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="500" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RMopReceived"
+      EntityAttrName="RMopReceived"
+      EntityUsage="PtCshRecptEO"
+      AliasName="R_MOP_RECEIVED" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RMopReceivedDesc"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="80"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="R_MOP_RECEIVED_DESC"
+      Expression="R_MOP_RECEIVED_DESC"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="80" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RReferenceNumber"
+      EntityAttrName="RReferenceNumber"
+      EntityUsage="PtCshRecptEO"
+      AliasName="R_REFERENCE_NUMBER" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RCurrency"
+      EntityAttrName="RCurrency"
+      EntityUsage="PtCshRecptEO"
+      AliasName="R_CURRENCY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RAmount"
+      EntityAttrName="RAmount"
+      EntityUsage="PtCshRecptEO"
+      AliasName="R_AMOUNT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RPaymentReceivedDate"
+      EntityAttrName="RPaymentReceivedDate"
+      EntityUsage="PtCshRecptEO"
+      AliasName="R_PAYMENT_RECEIVED_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RBriefNarration"
+      EntityAttrName="RBriefNarration"
+      EntityUsage="PtCshRecptEO"
+      AliasName="R_BRIEF_NARRATION" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RUpdImg"
+      IsPersistent="false"
+      Precision="13"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="R_UPD_IMG"
+      Expression="R_UPD_IMG"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="13" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RDelImg"
+      IsPersistent="false"
+      Precision="15"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="R_DEL_IMG"
+      Expression="R_DEL_IMG"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="15" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RAttachFile"
+      IsQueriable="false"
+      EntityAttrName="RAttachFile"
+      EntityUsage="PtCshRecptEO"
+      AliasName="R_ATTACH_FILE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RFileDesc"
+      EntityAttrName="RFileDesc"
+      EntityUsage="PtCshRecptEO"
+      AliasName="R_FILE_DESC" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AttributeCategory"
+      EntityAttrName="AttributeCategory"
+      EntityUsage="PtCshRecptEO"
+      AliasName="ATTRIBUTE_CATEGORY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute1"
+      EntityAttrName="Attribute1"
+      EntityUsage="PtCshRecptEO"
+      AliasName="ATTRIBUTE1" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute2"
+      EntityAttrName="Attribute2"
+      EntityUsage="PtCshRecptEO"
+      AliasName="ATTRIBUTE2" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute3"
+      EntityAttrName="Attribute3"
+      EntityUsage="PtCshRecptEO"
+      AliasName="ATTRIBUTE3" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute4"
+      EntityAttrName="Attribute4"
+      EntityUsage="PtCshRecptEO"
+      AliasName="ATTRIBUTE4" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute5"
+      EntityAttrName="Attribute5"
+      EntityUsage="PtCshRecptEO"
+      AliasName="ATTRIBUTE5" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute6"
+      EntityAttrName="Attribute6"
+      EntityUsage="PtCshRecptEO"
+      AliasName="ATTRIBUTE6" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute7"
+      EntityAttrName="Attribute7"
+      EntityUsage="PtCshRecptEO"
+      AliasName="ATTRIBUTE7" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute8"
+      EntityAttrName="Attribute8"
+      EntityUsage="PtCshRecptEO"
+      AliasName="ATTRIBUTE8" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute9"
+      EntityAttrName="Attribute9"
+      EntityUsage="PtCshRecptEO"
+      AliasName="ATTRIBUTE9" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute10"
+      EntityAttrName="Attribute10"
+      EntityUsage="PtCshRecptEO"
+      AliasName="ATTRIBUTE10" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      IsNotNull="true"
+      EntityAttrName="CreatedBy"
+      EntityUsage="PtCshRecptEO"
+      AliasName="CREATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      IsNotNull="true"
+      EntityAttrName="CreationDate"
+      EntityUsage="PtCshRecptEO"
+      AliasName="CREATION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      IsNotNull="true"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="PtCshRecptEO"
+      AliasName="LAST_UPDATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      IsNotNull="true"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="PtCshRecptEO"
+      AliasName="LAST_UPDATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateLogin"
+      EntityAttrName="LastUpdateLogin"
+      EntityUsage="PtCshRecptEO"
+      AliasName="LAST_UPDATE_LOGIN" >
+   </ViewAttribute>
+</ViewObject>

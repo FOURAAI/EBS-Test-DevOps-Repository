@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig>
+   <AppModuleConfigBag>
+      <AppModuleConfig name="iouAMLocal">
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <JDBCName>Haya-TEST</JDBCName>
+         <jbo.project>Haya</jbo.project>
+         <AppModuleJndiName>xxfin.oracle.apps.ap.iou.server.iouAM</AppModuleJndiName>
+         <java.naming.factory.initial>oracle.jbo.common.JboInitialContextFactory</java.naming.factory.initial>
+         <ApplicationName>xxfin.oracle.apps.ap.iou.server.iouAM</ApplicationName>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <ConnectionDefinition name="Haya-TEST">
+      <ENTRY name="JDBC_PORT" value="1561"/>
+      <ENTRY name="ConnectionType" value="JDBC"/>
+      <ENTRY name="HOSTNAME" value="hayasparcdb-test.owsc.com"/>
+      <ENTRY name="DeployPassword" value="true"/>
+      <ENTRY name="user" value="apps"/>
+      <ENTRY name="ConnectionName" value="Haya-TEST"/>
+      <ENTRY name="SID" value="TEST"/>
+      <ENTRY name="Role" value="Normal"/>
+      <ENTRY name="password">
+         <![CDATA[{904}059F9BCE54EF31E86C78AC746AECA1674D1C9982EAD79327E9]]>
+      </ENTRY>
+      <ENTRY name="JdbcDriver" value="oracle.jdbc.OracleDriver"/>
+      <ENTRY name="ORACLE_JDBC_TYPE" value="thin"/>
+      <ENTRY name="DeployPassword" value="true"/>
+   </ConnectionDefinition>
+</BC4JConfig>

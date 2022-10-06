@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+
+<AppModule
+   Name="iouAM"
+   ComponentClass="xxfin.oracle.apps.ap.iou.server.iouAMImpl"
+   DefClass="xxfin.oracle.apps.ap.iou.server.iouAMDefImpl" >
+   <DesignTime>
+      <Attr Name="_isDefCodegen" Value="true" />
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_deployType" Value="0" />
+   </DesignTime>
+   <ViewUsage
+      Name="iouVO"
+      ViewObjectName="xxfin.oracle.apps.ap.iou.server.iouVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="iouEmpLOVVO"
+      ViewObjectName="xxfin.oracle.apps.ap.iou.lov.server.iouEmpLOVVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="iouStatusVO"
+      ViewObjectName="xxfin.oracle.apps.ap.iou.picklist.server.iouStatusVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="iouCurrencyLOVVO"
+      ViewObjectName="xxfin.oracle.apps.ap.iou.lov.server.iouCurrencyLOVVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="iouExchangeVO"
+      ViewObjectName="xxfin.oracle.apps.ap.iou.server.iouExchangeVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="iouReasonVO"
+      ViewObjectName="xxfin.oracle.apps.ap.iou.picklist.server.iouReasonVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="iouHistVO"
+      ViewObjectName="xxfin.oracle.apps.ap.iou.server.iouHistVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="iouConversionTypeVO"
+      ViewObjectName="xxfin.oracle.apps.ap.iou.lov.server.iouConversionTypeVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="iouDivisionVO"
+      ViewObjectName="xxfin.oracle.apps.ap.iou.picklist.server.iouDivisionVO" >
+   </ViewUsage>
+</AppModule>

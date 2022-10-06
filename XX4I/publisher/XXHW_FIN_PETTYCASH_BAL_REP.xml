@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTemplate name="XXHW_FIN_PETTYCASH_VOC_REP" description="Haya Petty Cash Voucher Report" version="1.0">
+   <parameters>    
+     <parameter name="P_DIV" datatype="Varchar2"/>
+	 <parameter name="P_DATE" datatype="Varchar2"/>
+	 <parameter name="P_COUNT_50" datatype="Number"/>
+	 <parameter name="P_COUNT_20" datatype="Number"/>
+	 <parameter name="P_COUNT_10" datatype="Number"/>
+	 <parameter name="P_COUNT_5" datatype="Number"/>
+	 <parameter name="P_COUNT_1" datatype="Number"/>
+	 <parameter name="P_COUNT__5" datatype="Number"/>
+	 <parameter name="P_COUNT__1" datatype="Number"/>
+	 <parameter name="P_COUNT__05" datatype="Number"/>
+	 <parameter name="P_COUNT__025" datatype="Number"/>
+	 <parameter name="P_COUNT__01" datatype="Number"/>
+	 <parameter name="P_COUNT__005" datatype="Number"/>	
+   </parameters>
+   
+<dataQuery>
+    <sqlStatement name="DQ">
+         <![CDATA[      
+select FULL_NAME staff_name, to_char(IOU_GIVEN_DATE, 'DD-MON-YYYY') IOU_GIVEN_DATE, AMOUNT , REMARKS, DIVISION_NAME from XXFIN_STAFF_IOU_V where STATUS = 'Open' and trunc(IOU_GIVEN_DATE)  < =  trunc(fnd_date.canonical_to_date(:P_DATE)) and DIVISION_NAME = :P_DIV
+ ]]>
+    </sqlStatement>	
+	 <sqlStatement name="DQ_PARAM">
+         <![CDATA[      
+ select  upper(:P_DIV) UPP_DIVISION_NAME,  to_char(fnd_date.canonical_to_date(:P_DATE), 'DD Mon YYYY') P_DATE_FROMAT from dual
+ ]]>
+    </sqlStatement>	
+	<sqlStatement name="DQ_UNAPPRD_CLAIM_LINES">
+         <![CDATA[      
+select nvl(sum(CLAIM__LINE_AMOUNT), 0) UNAPPRD_CLAIM, DIVISION_NAME from XXFIN_AP_PETTYCASH_HDR_V 
+where status not in  ('Approved', 'Draft') and upper(division_name) = upper(:P_DIV) and location_name is null
+and trunc(REQUEST_DATE)  < =  trunc(fnd_date.canonical_to_date(:P_DATE)) group by DIVISION_NAME
+ ]]>
+    </sqlStatement>	
+
+	
+    <sqlStatement name="DQ_P_COUNT_50">
+         <![CDATA[      
+SELECT 50 CASH_DENOMINATIONS, COUNT_50 CNT_NUMBER, COUNT_50*50 TOT_DENOM FROM (select :P_COUNT_50 COUNT_50 from dual)
+ ]]>
+    </sqlStatement>		
+    <sqlStatement name="DQ_P_COUNT_20">
+         <![CDATA[      
+SELECT 20 CASH_DENOMINATIONS, COUNT_20 CNT_NUMBER, COUNT_20*20 TOT_DENOM FROM (select :P_COUNT_20 COUNT_20 from dual)
+ ]]>
+    </sqlStatement>		
+    <sqlStatement name="DQ_P_COUNT_10">
+         <![CDATA[      
+SELECT 10 CASH_DENOMINATIONS, COUNT_10 CNT_NUMBER, COUNT_10 TOT_DENOM FROM (select :P_COUNT_10 COUNT_10 from dual)
+ ]]>
+    </sqlStatement>		
+    <sqlStatement name="DQ_P_COUNT_5">
+         <![CDATA[      
+SELECT 5 CASH_DENOMINATIONS, COUNT_5 CNT_NUMBER, COUNT_5*5 TOT_DENOM FROM (select :P_COUNT_5 COUNT_5 from dual)
+ ]]>
+    </sqlStatement>		
+    <sqlStatement name="DQ_P_COUNT_1">
+         <![CDATA[      
+SELECT 1 CASH_DENOMINATIONS, COUNT_1 CNT_NUMBER, COUNT_1*1 TOT_DENOM FROM  (select :P_COUNT_1 COUNT_1 from dual)
+ ]]>
+    </sqlStatement>		
+    <sqlStatement name="DQ_P_COUNT__5">
+         <![CDATA[      
+SELECT .5 CASH_DENOMINATIONS, COUNT__5 CNT_NUMBER, COUNT__5*.5 TOT_DENOM FROM (select :P_COUNT__5 COUNT__5 from dual)
+ ]]>
+    </sqlStatement>		
+    <sqlStatement name="DQ_P_COUNT__1">
+         <![CDATA[      
+SELECT .1 CASH_DENOMINATIONS, COUNT__1 CNT_NUMBER, COUNT__1*.1 TOT_DENOM FROM (select :P_COUNT__1 COUNT__1 from dual)
+ ]]>
+    </sqlStatement>		
+    <sqlStatement name="DQ_P_COUNT__05">
+         <![CDATA[      
+SELECT .05 CASH_DENOMINATIONS, COUNT__05 CNT_NUMBER, COUNT__05*.05 TOT_DENOM FROM (select :P_COUNT__05 COUNT__05 from dual)
+ ]]>
+    </sqlStatement>		
+    <sqlStatement name="DQ_P_COUNT__025">
+         <![CDATA[      
+SELECT .025 CASH_DENOMINATIONS, COUNT__025 CNT_NUMBER, COUNT__025*.025 TOT_DENOM FROM (select :P_COUNT__025 COUNT__025 from dual)
+ ]]>
+    </sqlStatement>		
+    <sqlStatement name="DQ_P_COUNT__01">
+         <![CDATA[      
+SELECT .01 CASH_DENOMINATIONS, COUNT__01 CNT_NUMBER, COUNT__01*.01 TOT_DENOM FROM (select :P_COUNT__01 COUNT__01 from dual)
+ ]]>
+    </sqlStatement>		
+    <sqlStatement name="DQ_P_COUNT__005">
+         <![CDATA[      
+SELECT .005 CASH_DENOMINATIONS, COUNT__005 CNT_NUMBER, COUNT__005*.005 TOT_DENOM FROM (select :P_COUNT__005 COUNT__005 from dual)
+ ]]>
+    </sqlStatement>				
+  </dataQuery>
+   
+  <dataStructure>
+    <group name="G_DP" source="DQ">
+		<element name="STAFF_NAME" value="STAFF_NAME"/>
+		<element name="IOU_GIVEN_DATE" value="IOU_GIVEN_DATE"/>
+		<element name="AMOUNT" value="AMOUNT"/>
+		<element name="REMARKS" value="REMARKS"/>		
+		<element name="DIVISION_NAME" value="DIVISION_NAME"/>		
+    </group>
+	<group name="G_DP_UNAPPRD_CLAIM_LINES" source="DQ_UNAPPRD_CLAIM_LINES">
+		<element name="UNAPPRD_CLAIM" value="UNAPPRD_CLAIM"/>	
+		<element name="DIVISION_NAME" value="DIVISION_NAME"/>
+    </group>
+	<group name="G_DP_P_COUNT_50" source="DQ_P_COUNT_50">
+		<element name="CASH_DENOMINATIONS" value="CASH_DENOMINATIONS"/>
+		<element name="CNT_NUMBER" value="CNT_NUMBER"/>
+		<element name="TOT_DENOM" value="TOT_DENOM"/>	
+    </group>
+	<group name="G_DP_P_COUNT_20" source="DQ_P_COUNT_20">
+		<element name="CASH_DENOMINATIONS" value="CASH_DENOMINATIONS"/>
+		<element name="CNT_NUMBER" value="CNT_NUMBER"/>
+		<element name="TOT_DENOM" value="TOT_DENOM"/>	
+    </group>
+	<group name="G_DP_P_COUNT_10" source="DQ_P_COUNT_10">
+		<element name="CASH_DENOMINATIONS" value="CASH_DENOMINATIONS"/>
+		<element name="CNT_NUMBER" value="CNT_NUMBER"/>
+		<element name="TOT_DENOM" value="TOT_DENOM"/>	
+    </group>
+	<group name="G_DP_P_COUNT_5" source="DQ_P_COUNT_5">
+		<element name="CASH_DENOMINATIONS" value="CASH_DENOMINATIONS"/>
+		<element name="CNT_NUMBER" value="CNT_NUMBER"/>
+		<element name="TOT_DENOM" value="TOT_DENOM"/>	
+    </group>
+	<group name="G_DP_P_COUNT_1" source="DQ_P_COUNT_1">
+		<element name="CASH_DENOMINATIONS" value="CASH_DENOMINATIONS"/>
+		<element name="CNT_NUMBER" value="CNT_NUMBER"/>
+		<element name="TOT_DENOM" value="TOT_DENOM"/>	
+    </group>
+	<group name="G_DP_P_COUNT__5" source="DQ_P_COUNT__5">
+		<element name="CASH_DENOMINATIONS" value="CASH_DENOMINATIONS"/>
+		<element name="CNT_NUMBER" value="CNT_NUMBER"/>
+		<element name="TOT_DENOM" value="TOT_DENOM"/>	
+    </group>
+	<group name="G_DP_P_COUNT__1" source="DQ_P_COUNT__1">
+		<element name="CASH_DENOMINATIONS" value="CASH_DENOMINATIONS"/>
+		<element name="CNT_NUMBER" value="CNT_NUMBER"/>
+		<element name="TOT_DENOM" value="TOT_DENOM"/>	
+    </group>
+	<group name="G_DP_P_COUNT__05" source="DQ_P_COUNT__05">
+		<element name="CASH_DENOMINATIONS" value="CASH_DENOMINATIONS"/>
+		<element name="CNT_NUMBER" value="CNT_NUMBER"/>
+		<element name="TOT_DENOM" value="TOT_DENOM"/>	
+    </group>
+	<group name="G_DP_P_COUNT__025" source="DQ_P_COUNT__025">
+		<element name="CASH_DENOMINATIONS" value="CASH_DENOMINATIONS"/>
+		<element name="CNT_NUMBER" value="CNT_NUMBER"/>
+		<element name="TOT_DENOM" value="TOT_DENOM"/>	
+    </group>	    
+	<group name="G_DP_P_COUNT__01" source="DQ_P_COUNT__01">
+		<element name="CASH_DENOMINATIONS" value="CASH_DENOMINATIONS"/>
+		<element name="CNT_NUMBER" value="CNT_NUMBER"/>
+		<element name="TOT_DENOM" value="TOT_DENOM"/>	
+    </group>
+	<group name="G_DP_P_COUNT__005" source="DQ_P_COUNT__005">
+		<element name="CASH_DENOMINATIONS" value="CASH_DENOMINATIONS"/>
+		<element name="CNT_NUMBER" value="CNT_NUMBER"/>
+		<element name="TOT_DENOM" value="TOT_DENOM"/>	
+    </group>
+		<group name="G_DP_PARAM" source="DQ_PARAM">
+		<element name="P_DATE_FROMAT" value="P_DATE_FROMAT"/>	
+		<element name="UPP_DIVISION_NAME" value="UPP_DIVISION_NAME"/>
+    </group>
+  </dataStructure>
+</dataTemplate>

@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+
+<AppModule
+   Name="PtCshAM"
+   ComponentClass="xxfin.oracle.apps.ap.pettycash.server.PtCshAMImpl" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_deployType" Value="0" />
+   </DesignTime>
+   <ViewUsage
+      Name="PtCshHdrVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.server.PtCshHdrVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PtCshRecptVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.server.PtCshRecptVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="DeptVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.DeptVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="BudgetVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.poplist.server.BudgetVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="CurrencyVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.CurrencyVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="ConversionTypeVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.ConversionTypeVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="GovernateVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.GovernateVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="ExpenseTypeVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.ExpenseTypeVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PaymentModeVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.PaymentModeVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="CurrencyVO2"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.CurrencyVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="SuppVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.SuppVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="glDailyRatesVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.glDailyRatesVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="ClaimNumVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.ClaimNumVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="getVendorVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.getVendorVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="CodeCombinationVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.server.CodeCombinationVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PtCshWfHistVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.server.PtCshWfHistVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="SeqClaimPrefixVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.SeqClaimPrefixVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PtCshSeqVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.server.PtCshSeqVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PtCshHdrVO2"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.server.PtCshHdrVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PtCshDtlVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.server.PtCshDtlVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PtCshDtlVO2"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.server.PtCshDtlVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="IOUAmountVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.IOUAmountVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PtCshTempVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.server.PtCshTempVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="BudgetCntVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.poplist.server.BudgetCntVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PtCshHdrVO3"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.server.PtCshHdrVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PtCshDtlVO3"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.server.PtCshDtlVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="getLineSeqVO1"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.getLineSeqVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="ExpenseTypeVO2"
+      ViewObjectName="xxfin.oracle.apps.ap.pettycash.lov.server.ExpenseTypeVO" >
+   </ViewUsage>
+</AppModule>

@@ -1,0 +1,155 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="region1" amDefName="xxfin.oracle.apps.ap.pettycash.server.PtCshAM" windowTitle="Petty Cash Search Page" title="Petty Cash Search Page" controllerClass="xxfin.oracle.apps.ap.pettycash.webui.PtCshSearchCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:tableLayout id="region78" hAlign="center">
+               <ui:contents>
+                  <oa:rowLayout id="region79">
+                     <ui:contents>
+                        <oa:cellFormat id="region80">
+                           <ui:contents>
+                              <oa:defaultDoubleColumn id="PtCshHdrVO1" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:messageLovInput id="Governate1" dataType="VARCHAR2" prompt="Governate" maximumLength="500">
+                                       <lovContents>
+                                          <oa:listOfValues id="region77">
+                                             <ui:contents>
+                                                <oa:table name="region77" id="GovernateVO1">
+                                                   <ui:contents>
+                                                      <oa:messageStyledText id="LookupCode" dataType="VARCHAR2" prompt="Governate" viewName="GovernateVO1" viewAttr="LookupCode" maximumLength="30" queryable="true"/>
+                                                      <oa:messageStyledText id="Meaning" dataType="VARCHAR2" prompt="Governate Description" viewName="GovernateVO1" viewAttr="Meaning" maximumLength="80" queryable="true"/>
+                                                   </ui:contents>
+                                                </oa:table>
+                                             </ui:contents>
+                                          </oa:listOfValues>
+                                       </lovContents>
+                                       <lovMappings>
+                                          <lovMap id="lovMap4" lovItem="LookupCode" resultTo="Governate1" criteriaFrom="Governate1"/>
+                                       </lovMappings>
+                                    </oa:messageLovInput>
+                                    <oa:messageLovInput id="RequestNumber" dataType="VARCHAR2" prompt="Claim Number" maximumLength="500">
+                                       <lovContents>
+                                          <oa:listOfValues id="region85">
+                                             <ui:contents>
+                                                <oa:table name="region85" id="ClaimNumVO1">
+                                                   <ui:contents>
+                                                      <oa:messageStyledText id="ClaimNumber" dataType="VARCHAR2" prompt="Claim Number" viewName="ClaimNumVO1" viewAttr="ClaimNumber" maximumLength="500" queryable="true"/>
+                                                      <oa:messageStyledText id="RequestDate" dataType="DATE" prompt="Request Date" viewName="ClaimNumVO1" viewAttr="RequestDate" queryable="true"/>
+                                                      <oa:messageStyledText id="ClaimLineAmount1" dataType="NUMBER" prompt="Claim Line Amount" viewName="ClaimNumVO1" viewAttr="ClaimLineAmount" queryable="true"/>
+                                                   </ui:contents>
+                                                </oa:table>
+                                             </ui:contents>
+                                          </oa:listOfValues>
+                                       </lovContents>
+                                       <lovMappings>
+                                          <lovMap id="lovMap5" lovItem="ClaimNumber" resultTo="RequestNumber" criteriaFrom="RequestNumber"/>
+                                       </lovMappings>
+                                    </oa:messageLovInput>
+                                    <oa:messageTextInput id="FromDate" prompt="From Date" dataType="DATE"/>
+                                    <oa:messageTextInput id="ToDate" prompt="To Date" dataType="DATE"/>
+                                    <oa:messageLovInput id="VendorName" dataType="VARCHAR2" prompt="Supplier Name" maximumLength="500" rendered="${oa.PtCshTempVO1.DisSuppFields}">
+                                       <lovContents>
+                                          <oa:listOfValues id="region86">
+                                             <ui:contents>
+                                                <oa:table name="region86" id="getVendorVO1">
+                                                   <ui:contents>
+                                                      <oa:messageStyledText id="VendorName2" dataType="VARCHAR2" prompt="Supplier Name" viewName="getVendorVO1" viewAttr="VendorName" maximumLength="500" queryable="true"/>
+                                                      <oa:messageStyledText id="VendorSiteName" dataType="VARCHAR2" prompt="Supplier Site Name" viewName="getVendorVO1" viewAttr="VendorSiteName" maximumLength="500" queryable="true"/>
+                                                   </ui:contents>
+                                                </oa:table>
+                                             </ui:contents>
+                                          </oa:listOfValues>
+                                       </lovContents>
+                                       <lovMappings>
+                                          <lovMap id="lovMap6" lovItem="VendorName2" resultTo="VendorName" criteriaFrom="VendorName"/>
+                                       </lovMappings>
+                                    </oa:messageLovInput>
+                                 </ui:contents>
+                              </oa:defaultDoubleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+                  <oa:rowLayout id="region81">
+                     <ui:contents>
+                        <oa:cellFormat id="region82">
+                           <ui:contents>
+                              <oa:defaultDoubleColumn id="region83" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:submitButton id="Search" text="Go" prompt="Go">
+                                       <ui:primaryClientAction>
+                                          <ui:fireAction event="SEARCH"/>
+                                       </ui:primaryClientAction>
+                                    </oa:submitButton>
+                                    <oa:submitButton id="Clear" text="Clear" prompt="Clear">
+                                       <ui:primaryClientAction>
+                                          <ui:fireAction event="CLEAR"/>
+                                       </ui:primaryClientAction>
+                                    </oa:submitButton>
+                                 </ui:contents>
+                              </oa:defaultDoubleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:tableLayout>
+            <oa:table id="PtCshHdrVO11" width="100%">
+               <ui:contents>
+                  <oa:switcher id="region89" viewName="PtCshHdrVO1" viewAttr="RequestNumDesc" prompt="Request Number">
+                     <ui:case name="RequestNumberTxt">
+                        <oa:messageStyledText id="RequestNumberTxt" dataType="VARCHAR2" prompt="Claim Number" viewName="PtCshHdrVO1" viewAttr="RequestNumber" maximumLength="500"/>
+                     </ui:case>
+                     <ui:case name="RequestNumberLink">
+                        <oa:link id="RequestNumberLink" viewName="PtCshHdrVO1" viewAttr="RequestNumber">
+                           <ui:primaryClientAction>
+                              <ui:firePartialAction event="UPDATE"/>
+                           </ui:primaryClientAction>
+                        </oa:link>
+                     </ui:case>
+                  </oa:switcher>
+                  <oa:messageStyledText id="VendorName1" dataType="VARCHAR2" prompt="Supplier Name" viewName="PtCshHdrVO1" viewAttr="VendorName" maximumLength="500" rendered="${oa.PtCshTempVO1.DisSuppFields}"/>
+                  <oa:messageStyledText id="ClaimLineAmount" dataType="NUMBER" prompt="Claim Amount" viewName="PtCshHdrVO1" viewAttr="ClaimLineAmount"/>
+                  <oa:messageStyledText id="BudgetApproval" viewName="PtCshHdrVO1" viewAttr="BudgetApproval" prompt="Budget Approval" rendered="${oa.PtCshTempVO1.DisSuppFields}"/>
+                  <oa:messageStyledText id="InvoiceNumber" viewName="PtCshHdrVO1" viewAttr="InvoiceNumber" prompt="Invoice Number" rendered="${oa.PtCshTempVO1.DisSuppFields}"/>
+                  <oa:messageStyledText id="PaidStatus" viewName="PtCshHdrVO1" viewAttr="PaidStatusDesc" prompt="Paid Status" rendered="${oa.PtCshTempVO1.DisSuppFields}"/>
+                  <oa:messageStyledText id="Status" dataType="VARCHAR2" prompt="Claim Approval Status" viewName="PtCshHdrVO1" viewAttr="Status" maximumLength="240"/>
+                  <oa:switcher id="region90" viewName="PtCshHdrVO1" viewAttr="UpdImg" prompt="Update">
+                     <ui:case name="UpdateImage">
+                        <oa:image id="UpdateImage" use="/oracle/apps/fnd/attributesets/Buttons/Update" source="updateicon_enabled.gif" viewName="PtCshHdrVO1" viewAttr="AttributeCategory">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="UPDATE" id="fireAction1"/>
+                           </ui:primaryClientAction>
+                        </oa:image>
+                     </ui:case>
+                     <ui:case name="DisableImage">
+                        <oa:image id="DisableImage" use="/oracle/apps/fnd/attributesets/Buttons/Update" source="updateicon_disabled.gif"/>
+                     </ui:case>
+                  </oa:switcher>
+                  <oa:flowLayout id="region87" prompt="Approval Workflow Details">
+                     <ui:contents>
+                        <oa:image id="WorkflowHistRN" source="webpage_status.gif" popupId="region88" popupRenderEvent="onHover" popupEnabled="true"/>
+                        <oa:popUp id="region88" popupRegion="/xxfin/oracle/apps/ap/pettycash/popup/webui/PtyCshWFPopupRN" height="300" width="900" popupType="ParameterizedPopup" popupParameters="param1={@PtycshHdrId}" popupTitle="Workflow History"/>
+                     </ui:contents>
+                  </oa:flowLayout>
+               </ui:contents>
+               <ui:tableActions>
+                  <oa:flowLayout id="region84">
+                     <ui:contents>
+                        <oa:submitButton id="CreateClaim" text="Create Claim" prompt="Create Claim" rendered="${oa.PtCshTempVO1.DisCreateButton}">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="CREATE"/>
+                           </ui:primaryClientAction>
+                        </oa:submitButton>
+                     </ui:contents>
+                  </oa:flowLayout>
+               </ui:tableActions>
+            </oa:table>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

@@ -1,0 +1,498 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="PtCshDtlVO"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="xxfin.oracle.apps.ap.pettycash.server.PtCshDtlVORowImpl"
+   ComponentClass="xxfin.oracle.apps.ap.pettycash.server.PtCshDtlVOImpl"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+select ROW_ID,
+    PTYCSH_DTL_ID,
+    PTYCSH_HDR_ID,
+    DTL_NUM,
+    DTL_NUM_DESC,
+dtl_num_act,
+    REQUEST_NUMBER,
+    SEGMENT1_GOV_DESC,
+    EXPENSE_TYPE,
+    EXPENSE_TYPE_DESC,
+    DEPARTMENT,
+    DEPARTMENT_DESC,
+    ACCOUNT_NUM,
+    ACCOUNT_DESCRIPTION,
+    CURRENCY,
+    AMOUNT,
+    EXCHANGE_RATE_TYPE,
+    EXCHANGE_RATE_DATE,
+    EXCHANGE_RATE,
+    AMOUNT_IN_OMR,
+    BRIEF_NARRATION,
+    BUDGET_RESULTS,
+xxhw_fin_pettycash_util_pkg.PTYCSH_IS_FUND_AVAIL(PTYCSH_DTL_ID) BUDGET_RESULTS_DESC,
+    CC_ID,
+    CONCATENATED_SEGMENTS,
+    UPD_IMG,
+    DEL_IMG,
+attach_ro_upd,
+    ATTACH_FILE,
+    FILE_DESC,
+    DIV_PROCESSED,
+    OLD_PTYCSH_HDR_ID,
+    OLD_PTYCSH_DTL_ID,
+    ELIGIBLE_SEL_FLAG,    
+    ATTRIBUTE_CATEGORY,
+    ATTRIBUTE1,
+    ATTRIBUTE2,
+    ATTRIBUTE3,
+    ATTRIBUTE4,
+    ATTRIBUTE5,
+    ATTRIBUTE6,
+    ATTRIBUTE7,
+    ATTRIBUTE8,
+    ATTRIBUTE9,
+    ATTRIBUTE10,
+    CREATED_BY_USERNAME,
+    UPDATED_BY_USERNAME,
+    CREATED_BY,
+    CREATION_DATE,
+    LAST_UPDATED_BY,
+    LAST_UPDATE_DATE,
+    LAST_UPDATE_LOGIN
+	from xxfin_ap_pettycash_dtl_v
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <EntityUsage
+      Name="PtCshDtlEO"
+      Entity="xxfin.oracle.apps.ap.pettycash.schema.server.PtCshDtlEO" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="RowId1"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.RowID"
+      ColumnType="ROWID"
+      AliasName="ROW_ID"
+      Expression="ROW_ID"
+      SQLType="ROWID" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PtycshDtlId"
+      IsNotNull="true"
+      EntityAttrName="PtycshDtlId"
+      EntityUsage="PtCshDtlEO"
+      AliasName="PTYCSH_DTL_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PtycshHdrId"
+      EntityAttrName="PtycshHdrId"
+      EntityUsage="PtCshDtlEO"
+      AliasName="PTYCSH_HDR_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DtlNum"
+      EntityAttrName="DtlNum"
+      EntityUsage="PtCshDtlEO"
+      AliasName="DTL_NUM" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DtlNumDesc"
+      IsPersistent="false"
+      Precision="281"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DTL_NUM_DESC"
+      Expression="DTL_NUM_DESC"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="281" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DtlNumAct"
+      EntityAttrName="DtlNumAct"
+      EntityUsage="PtCshDtlEO"
+      AliasName="DTL_NUM_ACT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RequestNumber"
+      IsPersistent="false"
+      Precision="500"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="REQUEST_NUMBER"
+      Expression="REQUEST_NUMBER"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="500" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Segment1GovDesc"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SEGMENT1_GOV_DESC"
+      Expression="SEGMENT1_GOV_DESC"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ExpenseType"
+      EntityAttrName="ExpenseType"
+      EntityUsage="PtCshDtlEO"
+      AliasName="EXPENSE_TYPE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ExpenseTypeDesc"
+      IsPersistent="false"
+      Precision="80"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="EXPENSE_TYPE_DESC"
+      Expression="EXPENSE_TYPE_DESC"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="80" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Department"
+      EntityAttrName="Department"
+      EntityUsage="PtCshDtlEO"
+      AliasName="DEPARTMENT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DepartmentDesc"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DEPARTMENT_DESC"
+      Expression="DEPARTMENT_DESC"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AccountNum"
+      EntityAttrName="AccountNum"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ACCOUNT_NUM" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AccountDescription"
+      EntityAttrName="AccountDescription"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ACCOUNT_DESCRIPTION" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Currency"
+      EntityAttrName="Currency"
+      EntityUsage="PtCshDtlEO"
+      AliasName="CURRENCY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Amount"
+      EntityAttrName="Amount"
+      EntityUsage="PtCshDtlEO"
+      AliasName="AMOUNT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ExchangeRateType"
+      EntityAttrName="ExchangeRateType"
+      EntityUsage="PtCshDtlEO"
+      AliasName="EXCHANGE_RATE_TYPE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ExchangeRateDate"
+      EntityAttrName="ExchangeRateDate"
+      EntityUsage="PtCshDtlEO"
+      AliasName="EXCHANGE_RATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ExchangeRate"
+      EntityAttrName="ExchangeRate"
+      EntityUsage="PtCshDtlEO"
+      AliasName="EXCHANGE_RATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AmountInOmr"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="AMOUNT_IN_OMR"
+      Expression="AMOUNT_IN_OMR"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="BriefNarration"
+      EntityAttrName="BriefNarration"
+      EntityUsage="PtCshDtlEO"
+      AliasName="BRIEF_NARRATION" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="BudgetResults"
+      EntityAttrName="BudgetResults"
+      EntityUsage="PtCshDtlEO"
+      AliasName="BUDGET_RESULTS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="BudgetResultsDesc"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="BUDGET_RESULTS_DESC"
+      Expression="BUDGET_RESULTS_DESC"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CcId"
+      EntityAttrName="CcId"
+      EntityUsage="PtCshDtlEO"
+      AliasName="CC_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ConcatenatedSegments"
+      EntityAttrName="ConcatenatedSegments"
+      EntityUsage="PtCshDtlEO"
+      AliasName="CONCATENATED_SEGMENTS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="UpdImg"
+      IsPersistent="false"
+      Precision="12"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="UPD_IMG"
+      Expression="UPD_IMG"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="12" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DelImg"
+      IsPersistent="false"
+      Precision="14"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DEL_IMG"
+      Expression="DEL_IMG"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="14" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AttachRoUpd"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ATTACH_RO_UPD"
+      Expression="ATTACH_RO_UPD"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AttachFile"
+      IsQueriable="false"
+      EntityAttrName="AttachFile"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ATTACH_FILE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="FileDesc"
+      EntityAttrName="FileDesc"
+      EntityUsage="PtCshDtlEO"
+      AliasName="FILE_DESC" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DivProcessed"
+      EntityAttrName="DivProcessed"
+      EntityUsage="PtCshDtlEO"
+      AliasName="DIV_PROCESSED" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="OldPtycshHdrId"
+      EntityAttrName="OldPtycshHdrId"
+      EntityUsage="PtCshDtlEO"
+      AliasName="OLD_PTYCSH_HDR_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="OldPtycshDtlId"
+      EntityAttrName="OldPtycshDtlId"
+      EntityUsage="PtCshDtlEO"
+      AliasName="OLD_PTYCSH_DTL_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="EligibleSelFlag"
+      EntityAttrName="EligibleSelFlag"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ELIGIBLE_SEL_FLAG" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AttributeCategory"
+      EntityAttrName="AttributeCategory"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ATTRIBUTE_CATEGORY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute1"
+      EntityAttrName="Attribute1"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ATTRIBUTE1" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute2"
+      EntityAttrName="Attribute2"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ATTRIBUTE2" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute3"
+      EntityAttrName="Attribute3"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ATTRIBUTE3" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute4"
+      EntityAttrName="Attribute4"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ATTRIBUTE4" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute5"
+      EntityAttrName="Attribute5"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ATTRIBUTE5" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute6"
+      EntityAttrName="Attribute6"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ATTRIBUTE6" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute7"
+      EntityAttrName="Attribute7"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ATTRIBUTE7" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute8"
+      EntityAttrName="Attribute8"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ATTRIBUTE8" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute9"
+      EntityAttrName="Attribute9"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ATTRIBUTE9" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute10"
+      EntityAttrName="Attribute10"
+      EntityUsage="PtCshDtlEO"
+      AliasName="ATTRIBUTE10" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReadOnly"
+      IsSelected="false"
+      IsPersistent="false"
+      Type="java.lang.Boolean"
+      ColumnType="NUMBER"
+      AliasName="VIEW_ATTR"
+      SQLType="BIT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedByUsername"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CREATED_BY_USERNAME"
+      Expression="CREATED_BY_USERNAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="UpdatedByUsername"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="UPDATED_BY_USERNAME"
+      Expression="UPDATED_BY_USERNAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      IsNotNull="true"
+      EntityAttrName="CreatedBy"
+      EntityUsage="PtCshDtlEO"
+      AliasName="CREATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      IsNotNull="true"
+      EntityAttrName="CreationDate"
+      EntityUsage="PtCshDtlEO"
+      AliasName="CREATION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      IsNotNull="true"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="PtCshDtlEO"
+      AliasName="LAST_UPDATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      IsNotNull="true"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="PtCshDtlEO"
+      AliasName="LAST_UPDATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateLogin"
+      EntityAttrName="LastUpdateLogin"
+      EntityUsage="PtCshDtlEO"
+      AliasName="LAST_UPDATE_LOGIN" >
+   </ViewAttribute>
+</ViewObject>

@@ -1,0 +1,147 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="PageLayoutRN" amDefName="xxfin.oracle.apps.ap.iou.server.iouAM" controllerClass="xxfin.oracle.apps.ap.iou.webui.iouInfoCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:header id="Details" text="Staff IOU Details">
+               <ui:contents>
+                  <oa:messageComponentLayout id="MCL1">
+                     <ui:contents>
+                        <oa:messageStyledText id="IOUNumber" viewName="iouVO" viewAttr="IouNum" prompt="IOU Number"/>
+                        <oa:messageLovInput id="EmployeeNumber" viewName="iouVO" viewAttr="EmployeeNumber" externalListOfValues="/xxfin/oracle/apps/ap/iou/lov/webui/iuoEmpLOVRN" prompt="Employee Number" required="no" readOnly="true">
+                           <lovMappings>
+                              <lovMap id="lovMap1" lovItem="EmployeeNumber" resultTo="EmployeeNumber"/>
+                              <lovMap id="lovMap3" lovItem="FullName" resultTo="FullName"/>
+                              <lovMap id="lovMap4" lovItem="PersonId" resultTo="PerID" criteriaFrom="PerID"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                        <oa:messageLovInput id="FullName" viewName="iouVO" viewAttr="FullName" externalListOfValues="/xxfin/oracle/apps/ap/iou/lov/webui/iuoEmpLOVRN" prompt="Employee Name" required="no" readOnly="true">
+                           <lovMappings>
+                              <lovMap id="lovMap2" lovItem="EmployeeNumber" resultTo="EmployeeNumber"/>
+                              <lovMap id="lovMap5" lovItem="FullName" resultTo="FullName"/>
+                              <lovMap id="lovMap6" lovItem="PersonId" resultTo="PerID" criteriaFrom="PerID"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                        <oa:messageStyledText id="IOUGivenDate" dataType="DATE" viewName="iouVO" viewAttr="IouGivenDate" prompt="IOU Given Date" required="no"/>
+                        <oa:messageStyledText id="CurrencyLOV" viewName="iouVO" viewAttr="Currency" prompt="Currency" required="no"/>
+                        <oa:messageStyledText id="Amount" viewName="iouVO" viewAttr="Amount" prompt="Amount" required="no"/>
+                        <oa:messageStyledText id="ExRateType" viewName="iouVO" viewAttr="ExchangeRateType" prompt="Exchange Rate Type"/>
+                        <oa:messageStyledText id="ExRateDate" viewName="iouVO" viewAttr="ExchangeRateDate" prompt="Exchange Rate Date" dataType="VARCHAR2"/>
+                        <oa:messageStyledText id="ExchangeRate" viewName="iouVO" viewAttr="ExchangeRate" prompt="Exchange Rate"/>
+                        <oa:messageStyledText id="AmountOmr" viewName="iouVO" viewAttr="AmountOmr" prompt="Amount in OMR"/>
+                        <oa:messageStyledText id="Remarks" viewName="iouVO" viewAttr="Remarks" prompt="Remarks" rows="5" columns="50" required="no"/>
+                     </ui:contents>
+                  </oa:messageComponentLayout>
+                  <oa:formValue id="PerID" dataType="NUMBER" viewName="iouVO" viewAttr="PersonId"/>
+                  <oa:header id="CloseRN" text="IOU Closing Details">
+                     <ui:contents>
+                        <oa:rowLayout id="region2" width="100%">
+                           <ui:contents>
+                              <oa:cellFormat id="region3" width="30%"/>
+                              <oa:cellFormat id="region31" width="40%">
+                                 <ui:contents>
+                                    <oa:defaultDoubleColumn id="CloseDet" headerDisabled="true">
+                                       <ui:contents>
+                                          <oa:messageStyledText id="IouClosedDate" viewName="iouVO" viewAttr="IouClosedDate" required="no" prompt="IOU Closing Date"/>
+                                          <oa:messageChoice id="ReasonForClosing" viewName="iouVO" viewAttr="ReasonForClosing" required="no" prompt="Reason For Closing" pickListViewName="iouReasonVO" pickListDispAttr="Meaning" pickListValAttr="LookupCode" readOnly="true"/>
+                                          <oa:messageStyledText id="BillAmount" viewName="iouVO" viewAttr="BillAmount" prompt="Bills Amount" required="no"/>
+                                          <oa:attachmentLink id="Bills" viewName="iouVO" prompt="Bills Attachment" text="View" rendered="true" enableDocumentCatalog="false" inlineAttachmentEnabled="true">
+                                             <oa:entityMappings>
+                                                <oa:entityMap id="entityMap21" deleteAllowed="false" entityId="XXFIN_IOU_BILLS" insertAllowed="false" updateAllowed="false">
+                                                   <oa:primaryKeys>
+                                                      <oa:primaryKey id="primaryKey21" viewAttr="IouId"/>
+                                                   </oa:primaryKeys>
+                                                   <oa:categoryMappings>
+                                                      <oa:categoryMap id="categoryMap11" categoryName="MISC"/>
+                                                   </oa:categoryMappings>
+                                                </oa:entityMap>
+                                             </oa:entityMappings>
+                                          </oa:attachmentLink>
+                                          <oa:messageStyledText id="DiffAmount" viewName="iouVO" viewAttr="DiffAmount" prompt="Difference Amount" required="no"/>
+                                       </ui:contents>
+                                    </oa:defaultDoubleColumn>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                              <oa:cellFormat id="region32" width="30%">
+                                 <ui:contents>
+                                    <oa:messageCheckBox id="DiffAmountSettled" viewName="iouVO" viewAttr="DiffAmountSettled" text="Difference Amount Settled" prompt="Difference Amount Settled" checkedValue="Y" unCheckedValue="N" defaultValue="" required="no" readOnly="true"/>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                           </ui:contents>
+                        </oa:rowLayout>
+                     </ui:contents>
+                  </oa:header>
+                  <oa:header id="AttachmentRN" text="Attachments">
+                     <ui:contents>
+                        <oa:attachmentLink id="Documents" viewName="iouVO" prompt="Attachments" text="View" rendered="true" enableDocumentCatalog="false" inlineAttachmentEnabled="true">
+                           <oa:entityMappings>
+                              <oa:entityMap id="entityMap2" deleteAllowed="false" entityId="XXFIN_IOU_FOCAL" insertAllowed="false" updateAllowed="false">
+                                 <oa:primaryKeys>
+                                    <oa:primaryKey id="primaryKey2" viewAttr="IouId"/>
+                                 </oa:primaryKeys>
+                                 <oa:categoryMappings>
+                                    <oa:categoryMap id="categoryMap1" categoryName="MISC"/>
+                                 </oa:categoryMappings>
+                              </oa:entityMap>
+                           </oa:entityMappings>
+                        </oa:attachmentLink>
+                     </ui:contents>
+                  </oa:header>
+                  <oa:header id="HistoryRN" text="Record History">
+                     <ui:contents>
+                        <oa:advancedTable id="HistTable" viewName="iouHistVO" width="100%">
+                           <ui:contents>
+                              <oa:column id="column1">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader1" prompt="Created By"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="item1" viewAttr="CreatedBy"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column11">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader11" prompt="Creation Date"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="item11" viewAttr="CreationDate"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column12">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader12" prompt="Last Updated By"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="item12" viewAttr="UpdatedBy" prompt="Last Updated By"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column13">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader13" prompt="Last Update Date"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="item13" viewAttr="LastUpdateDate"/>
+                                 </ui:contents>
+                              </oa:column>
+                           </ui:contents>
+                        </oa:advancedTable>
+                     </ui:contents>
+                  </oa:header>
+               </ui:contents>
+            </oa:header>
+            <oa:pageButtonBar id="ButtonBar">
+               <ui:contents>
+                  <oa:button id="Back" text="Back" prompt="Back">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="BackBT" unvalidated="true" id="fireAction2"/>
+                     </ui:primaryClientAction>
+                  </oa:button>
+               </ui:contents>
+            </oa:pageButtonBar>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

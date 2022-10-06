@@ -1,0 +1,26 @@
+# $Header$
+
+# dbdrv: exec fnd bin FNDLOAD bin &phase=dat+2 checkfile:~PROD:~PATH:~FILE &ui_apps 0 Y UPLOAD @AME:patch/115/import/amesmatt.lct @~PROD:~PATH/~FILE
+LANGUAGE = "US"
+LDRCONFIG = "amesmatt.lct 120.3.12020000.1"
+
+#Source Database TEST
+
+#RELEASE_NAME 12.2.6
+
+# -- Begin Entity Definitions -- 
+
+DEFINE AME_ATTRIBUTES
+  KEY   ATTRIBUTE_NAME                  VARCHAR2(50)
+  BASE  ATTRIBUTE_TYPE                  VARCHAR2(20)
+  TRANS DESCRIPTION                     VARCHAR2(300)
+  BASE  LINE_ITEM                       VARCHAR2(1)
+  BASE  ORIG_SYSTEM                     VARCHAR2(50)
+  BASE  ITEM_CLASS_NAME                 VARCHAR2(100)
+  BASE  LAST_UPDATE_DATE                VARCHAR2(19)
+  CTX   OWNER                           VARCHAR2(100)
+END AME_ATTRIBUTES
+
+# -- End Entity Definitions -- 
+
+

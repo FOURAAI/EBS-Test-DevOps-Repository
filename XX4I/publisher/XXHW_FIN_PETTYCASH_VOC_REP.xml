@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataTemplate name="XXHW_FIN_PETTYCASH_VOC_REP" description="Haya Petty Cash Voucher Report" version="1.0">
+   <parameters>    
+     <parameter name="P_DIV" datatype="Varchar2"/>
+	 <parameter name="P_REQUEST_NUMBER" datatype="Varchar2"/>
+   </parameters>
+  <dataQuery>
+    <sqlStatement name="DQ">
+         <![CDATA[      
+      
+SELECT xaphv.REQUEST_NUMBER,
+       xaphv.VENDOR_NAME,
+       to_char(xaphv.REQUEST_DATE, 'DD-MON-YYYY') REQUEST_DATE,
+       xapdv.SEGMENT1_GOV_DESC,
+       xapdv.DEPARTMENT_DESC,
+       xapdv.ACCOUNT_NUM,
+       xapdv.ACCOUNT_DESCRIPTION,
+       xapdv.BRIEF_NARRATION,
+       xapdv.AMOUNT_IN_OMR,
+       xaphv.DIVISION_NAME,
+       papf.full_name CREATOR_NAME,
+	   to_char(SYSDATE, 'DD-MON-YYYY') PRINT_DATE,
+       to_char(xaphv.creation_date, 'DD-MON-YYYY') CREATION_DATE
+         FROM xxfin_ap_pettycash_dtl_v xapdv, xxfin_ap_pettycash_hdr_v xaphv, fnd_user fu,per_all_people_f papf
+ WHERE     xapdv.ptycsh_hdr_id = xaphv.ptycsh_hdr_id
+      AND nvl(xaphv.location_name, xaphv.division) = nvl(:P_DIV, nvl(xaphv.location_name, xaphv.division))
+	   and xaphv.request_number = nvl(:P_REQUEST_NUMBER, xaphv.request_number)
+      and fu.user_id = xaphv.created_by
+      and papf.person_id = fu.employee_id 
+      and  xaphv.creation_date between papf.effective_start_date and papf.Effective_end_date
+ 
+ ]]>
+    </sqlStatement>		
+	    <sqlStatement name="DQ_AMOUNT">
+         <![CDATA[      
+SELECT xxhw_fin_pettycash_util_pkg.spell_number_omr(sum(xapdv.AMOUNT_IN_OMR)) AMOUNT_IN_WORDS
+  FROM xxfin_ap_pettycash_dtl_v xapdv, xxfin_ap_pettycash_hdr_v xaphv
+ WHERE     xapdv.ptycsh_hdr_id = xaphv.ptycsh_hdr_id
+      AND nvl(xaphv.location_name, xaphv.division) = nvl(:P_DIV, nvl(xaphv.location_name, xaphv.division))
+       AND xaphv.REQUEST_NUMBER = nvl(:P_REQUEST_NUMBER, xaphv.REQUEST_NUMBER) 
+ ]]>
+    </sqlStatement>	
+	<sqlStatement name="DQ_PARAM">
+         <![CDATA[      
+select to_char(sysdate, 'DD-MON-YYYY') PRINT_DATE from dual
+ ]]>
+    </sqlStatement>	
+		
+  </dataQuery>
+   
+  <dataStructure>
+    <group name="G_DQ_PARAM" source="DQ_PARAM">
+		<element name="PRINT_DATE" value="PRINT_DATE"/>
+		<group name="G_DQ_AMOUNT" source="DQ_AMOUNT">
+			<element name="AMOUNT_IN_WORDS" value="AMOUNT_IN_WORDS"/> 
+			<group name="G_DP" source="DQ">
+				<element name="REQUEST_NUMBER" value="REQUEST_NUMBER"/>
+				<element name="VENDOR_NAME" value="VENDOR_NAME"/>
+				<element name="REQUEST_DATE" value="REQUEST_DATE"/>
+				<element name="SEGMENT1_GOV_DESC" value="SEGMENT1_GOV_DESC"/>
+				<element name="SEGMENT1_GOV_DESC" value="SEGMENT1_GOV_DESC"/>
+				<element name="DEPARTMENT_DESC" value="DEPARTMENT_DESC"/>
+				<element name="ACCOUNT_NUM" value="ACCOUNT_NUM"/>
+				<element name="ACCOUNT_DESCRIPTION" value="ACCOUNT_DESCRIPTION"/>
+				<element name="BRIEF_NARRATION" value="BRIEF_NARRATION"/>
+				<element name="AMOUNT_IN_OMR" value="AMOUNT_IN_OMR"/> 		
+				<element name="DIVISION_NAME" value="DIVISION_NAME"/>  		 
+				<element name="CREATOR_NAME" value="CREATOR_NAME"/>  
+				<element name="CREATION_DATE" value="CREATION_DATE"/>  		
+				<element name="PRINT_DATE" value="PRINT_DATE"/> 
+			</group>
+		</group>
+     </group>
+  </dataStructure>
+</dataTemplate>
