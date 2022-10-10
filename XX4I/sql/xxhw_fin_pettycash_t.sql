@@ -16,7 +16,7 @@ SET PAGESIZE 0 FEEDBACK OFF VERIFY OFF HEADING OFF ECHO OFF LONG 999999 LONGCHUN
 /*table -1     :     Petty Cash Header Table */
 
 
-CREATE TABLE XXFIN.XXFIN_AP_PETTYCASH_HDR_T
+CREATE TABLE XXFIN_AP_PETTYCASH_HDR_T
 (
   PTYCSH_HDR_ID       NUMBER,
   REQUEST_NUMBER      VARCHAR2(500 BYTE),
@@ -75,7 +75,7 @@ ALTER TABLE xxfin_ap_pettycash_hdr_t
 /* table -2     :       Petty Cash Detail Table */
 
 
-CREATE TABLE XXFIN.XXFIN_AP_PETTYCASH_DTL_T
+CREATE TABLE XXFIN_AP_PETTYCASH_DTL_T
 (
   PTYCSH_DTL_ID          NUMBER                 NOT NULL,
   PTYCSH_HDR_ID          NUMBER,
@@ -128,7 +128,7 @@ ALTER TABLE xxfin_ap_pettycash_dtl_t
 
 /* table -3     :       Petty Cash Receipt Detail Table */
 
-CREATE TABLE XXFIN.XXFIN_AP_PETTYCASH_RECPT_T
+CREATE TABLE XXFIN_AP_PETTYCASH_RECPT_T
 (
   PTYCSH_RECPT_ID          NUMBER               NOT NULL,
   PTYCSH_HDR_ID            NUMBER,
@@ -168,7 +168,7 @@ ALTER TABLE xxfin_ap_pettycash_recpt_t
 
 /* table -4     :       Petty Cash Workflow  Table */
 
-CREATE TABLE XXFIN.XXFIN_AP_PETTYCASH_WF_T
+CREATE TABLE XXFIN_AP_PETTYCASH_WF_T
 (
   PTYCSH_WF_HIST_ID   NUMBER                    NOT NULL,
   PTYCSH_DTL_ID       NUMBER,
@@ -210,7 +210,7 @@ ALTER TABLE xxfin_ap_pettycash_wf_t
 /* table - 5    :       Petty Cash Sequence  Table */
 
 
-CREATE TABLE XXFIN.XXFIN_AP_PETTYCASH_SEQ_T
+CREATE TABLE XXFIN_AP_PETTYCASH_SEQ_T
 (
   PTYCSH_SEQ_ID             NUMBER,
   DIVISION_NAME             VARCHAR2(240 BYTE),
@@ -244,7 +244,7 @@ CREATE TABLE XXFIN.XXFIN_AP_PETTYCASH_SEQ_T
 /* table - 6    :       IOU  Table */
 
 
-CREATE TABLE XXFIN.XXFIN_STAFF_IOU
+CREATE TABLE XXFIN_STAFF_IOU
 (
   IOU_ID               NUMBER,
   IOU_NUM              VARCHAR2(100 BYTE),
