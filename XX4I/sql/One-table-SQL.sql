@@ -16,7 +16,7 @@ SET PAGESIZE 0 FEEDBACK OFF VERIFY OFF HEADING OFF ECHO OFF LONG 999999 LONGCHUN
 /*table -1     :     Petty Cash Header Table */
 
 
-CREATE TABLE XXFIN_AP_PETTYCASH_HDR_T
+CREATE TABLE XXFIN_AP_PETTYCASH_HDR_T1
 (
   PTYCSH_HDR_ID       NUMBER,
   REQUEST_NUMBER      VARCHAR2(500 BYTE),
@@ -66,8 +66,8 @@ CREATE TABLE XXFIN_AP_PETTYCASH_HDR_T
 );
 
 
-ALTER TABLE xxfin_ap_pettycash_hdr_t
-    ADD CONSTRAINT xxfin_ap_pettycash_hdr_t_pk PRIMARY KEY (ptycsh_hdr_id)
+ALTER TABLE xxfin_ap_pettycash_hdr_t1
+    ADD CONSTRAINT xxfin_ap_pettycash_hdr_t_pk1 PRIMARY KEY (ptycsh_hdr_id)
             USING INDEX;
             
 -------------------------------------------------------------------------------------------------------------------------------------
