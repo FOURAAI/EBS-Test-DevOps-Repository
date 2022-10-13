@@ -1,22 +1,4 @@
---SET PAGESIZE 0 FEEDBACK OFF VERIFY OFF HEADING OFF ECHO OFF LONG 999999 LONGCHUNKSIZE 999999 LINESIZE 500
-
--- =========================================================================
--- $header$
---
--- name             : xxhw_fin_pettycash_t.sql
---
--- description      : Table creation scripts for Haya Water Finance Petty Cash
---
---
--- who                                            remarks                        date
--- --------------                  --------------------------------------- ------------------
--- gowtham raam.j -4iapps                     0.1 - dev version               26-FEB-2020
--- =========================================================================
-
-/*table -1     :     Petty Cash Header Table */
-
-
-CREATE TABLE XXFIN_AP_PETTYCASH_HDR_T7
+CREATE TABLE XXFIN_AP_PETTYCASH_HDR_T9
 (
   PTYCSH_HDR_ID       NUMBER,
   REQUEST_NUMBER      VARCHAR2(500 BYTE),
@@ -64,12 +46,8 @@ CREATE TABLE XXFIN_AP_PETTYCASH_HDR_T7
   ERROR_FLAG          VARCHAR2(240 BYTE),
   BUDGET_APPROVAL     VARCHAR2(240 BYTE)
 );
-
-
-ALTER TABLE xxfin_ap_pettycash_hdr_t7
-    ADD CONSTRAINT xxfin_ap_pettycash_hdr_t_pk7 PRIMARY KEY (ptycsh_hdr_id)
+/
+ALTER TABLE xxfin_ap_pettycash_hdr_t9
+    ADD CONSTRAINT xxfin_ap_pettycash_hdr_t_pk9 PRIMARY KEY (ptycsh_hdr_id)
             USING INDEX;
-            
--------------------------------------------------------------------------------------------------------------------------------------
---EXIT;
---eof            
+/          
