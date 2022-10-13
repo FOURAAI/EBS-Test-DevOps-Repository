@@ -1,4 +1,4 @@
-SET PAGESIZE 0 FEEDBACK OFF VERIFY OFF HEADING OFF ECHO OFF LONG 999999 LONGCHUNKSIZE 999999 LINESIZE 500
+--SET PAGESIZE 0 FEEDBACK OFF VERIFY OFF HEADING OFF ECHO OFF LONG 999999 LONGCHUNKSIZE 999999 LINESIZE 500
 
 -- =========================================================================
 -- $header$
@@ -71,5 +71,5 @@ ALTER TABLE xxfin_ap_pettycash_hdr_t1
             USING INDEX;
             
 -------------------------------------------------------------------------------------------------------------------------------------
-EXIT;
-eof            
+--EXIT;
+--eof            
